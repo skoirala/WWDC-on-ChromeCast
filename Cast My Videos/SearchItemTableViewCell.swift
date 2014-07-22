@@ -12,7 +12,7 @@ class SearchItemTableViewCell: ItemTableViewCell {
 
   override func layoutSubviews(){
     super.layoutSubviews()
-    nameLabel.preferredMaxLayoutWidth = bounds.size.width - 30
+    nameLabel!.preferredMaxLayoutWidth = bounds.size.width - 30
     super.layoutSubviews()
   }
   
@@ -20,30 +20,30 @@ class SearchItemTableViewCell: ItemTableViewCell {
     
     if let name = item.title {
       
-      if name.bridgeToObjectiveC().length > 35{
-        nameLabel.text = "\(name.substringToIndex(35))..."
+      if name.bridgeToObjectiveC().length > 30{
+        nameLabel!.text = "\(name.bridgeToObjectiveC().substringToIndex(30))..."
       }else{
-        nameLabel.text = name
+        nameLabel!.text = name
       }
       
       
     }else{
       
-      if item.url!.bridgeToObjectiveC().length > 35{
-        nameLabel.text = "\(item.url!.substringToIndex(35))..."
+      if item.url!.bridgeToObjectiveC().length > 30{
+        nameLabel!.text = "\(item.url!.bridgeToObjectiveC().substringToIndex(30))..."
       }else{
-        nameLabel.text = item.url!
+        nameLabel!.text = item.url!
       }
     }
     
     if let duration = item.duration{
       
-      durationLabel.text = duration
+      durationLabel!.text = duration
       
     }
     
     if let year = item.year{
-      yearLabel.text = year
+      yearLabel!.text = year
     }
     
   }

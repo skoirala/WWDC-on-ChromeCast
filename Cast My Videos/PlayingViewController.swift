@@ -13,11 +13,11 @@ import QuartzCore
 
 class PlayingViewController: UIViewController {
   
-  @IBOutlet var playPauseButton: UIButton
+  @IBOutlet var playPauseButton: UIButton?
   
-  @IBOutlet var timerLabel: UILabel
+  @IBOutlet var timerLabel: UILabel?
   
-  @IBOutlet var scrubber: UISlider
+  @IBOutlet var scrubber: UISlider?
   
   var displayLink: CADisplayLink?
   
@@ -93,7 +93,7 @@ class PlayingViewController: UIViewController {
         
           let value: Float = Float(streamPosition!) / Float(durationInSeconds)
         
-          scrubber.value = value
+          scrubber!.value = value
           
         }
       }
@@ -145,14 +145,14 @@ class PlayingViewController: UIViewController {
     
     println(item?.url)
     
-    scrubber.addTarget(self, action: "scrubberTouchDown:", forControlEvents: .TouchDown)
+    scrubber?.addTarget(self, action: "scrubberTouchDown:", forControlEvents: .TouchDown)
     
-    scrubber.addTarget(self, action: "scrubberTouchUpInside:", forControlEvents: .TouchUpInside)
+    scrubber?.addTarget(self, action: "scrubberTouchUpInside:", forControlEvents: .TouchUpInside)
     
     
     refinedUrl = item?.url!
     
-    scrubber.enabled = false
+    scrubber!.enabled = false
     let url = NSURL(string: refinedUrl)
     
     let avAsset = AVURLAsset(URL: url, options: nil)
@@ -176,7 +176,7 @@ class PlayingViewController: UIViewController {
           
           })
         
-        self.scrubber.enabled = true
+        self.scrubber!.enabled = true
         
       default:
         
@@ -194,7 +194,7 @@ class PlayingViewController: UIViewController {
       let currentTime = timeFromDuration(self.currentTime)
       
       
-      self.timerLabel.text = NSString(format: "%@ / %@", currentTime, totalTime)
+      self.timerLabel!.text = NSString(format: "%@ / %@", currentTime, totalTime)
     }
     
   }

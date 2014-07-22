@@ -24,7 +24,7 @@ class SearchResultViewController: UITableViewController, NSFetchedResultsControl
   
  
   
-  @lazy var fetchedResultsController: NSFetchedResultsController? =  {
+  lazy var fetchedResultsController: NSFetchedResultsController? =  {
     var predicate: NSPredicate? = nil
     
     let fetchRequest = NSFetchRequest(entityName: "Item")

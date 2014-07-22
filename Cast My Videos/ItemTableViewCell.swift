@@ -10,9 +10,9 @@ import UIKit
 
 class ItemTableViewCell: UITableViewCell {
   
-  @IBOutlet var nameLabel: UILabel
-  @IBOutlet var durationLabel: UILabel
-  @IBOutlet var yearLabel: UILabel
+  @IBOutlet var nameLabel: UILabel?
+  @IBOutlet var durationLabel: UILabel?
+  @IBOutlet var yearLabel: UILabel?
 
 
     init(style: UITableViewCellStyle, reuseIdentifier: String) {
@@ -34,7 +34,7 @@ class ItemTableViewCell: UITableViewCell {
   
   override func layoutSubviews(){
     super.layoutSubviews()
-    nameLabel.preferredMaxLayoutWidth = bounds.size.width - 20 - 100
+    nameLabel!.preferredMaxLayoutWidth = bounds.size.width - 20 - 100
     super.layoutSubviews()
   }
   
@@ -42,9 +42,9 @@ class ItemTableViewCell: UITableViewCell {
     
     super.prepareForReuse()
   
-    nameLabel.text = ""
+    nameLabel!.text = ""
   
-    durationLabel.text = ""
+    durationLabel!.text = ""
   }
   
   func setItem(item: Item){
@@ -52,29 +52,29 @@ class ItemTableViewCell: UITableViewCell {
     if let name = item.title {
       
       if name.bridgeToObjectiveC().length > 25{
-        nameLabel.text = "\(name.substringToIndex(25))..."
+        nameLabel!.text = "\(name.bridgeToObjectiveC().substringToIndex(25))..."
       }else{
-        nameLabel.text = name
+        nameLabel!.text = name
       }
 
     
     }else{
       
       if item.url!.bridgeToObjectiveC().length > 25{
-        nameLabel.text = "\(item.url!.substringToIndex(25))..."
+        nameLabel!.text = "\(item.url!.bridgeToObjectiveC().substringToIndex(25))..."
       }else{
-        nameLabel.text = item.url!
+        nameLabel!.text = item.url!
       }
     }
     
     if let duration = item.duration{
       
-      durationLabel.text = duration
+      durationLabel!.text = duration
       
     }
     
     if let year = item.year{
-      yearLabel.text = year
+      yearLabel!.text = year
     }
     
   }
