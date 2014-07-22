@@ -13,70 +13,48 @@ class OperationManager: NSObject {
   lazy var operationQueue: NSOperationQueue = {
     let operationQueue = NSOperationQueue()
     operationQueue.maxConcurrentOperationCount = 4
+    operationQueue.waitUntilAllOperationsAreFinished()
+
     return operationQueue
   }()
   
+  
+  func createOperationReturningFirstAndLastOperation(#url: String!, forYear year: String!) -> (firstOperation:NSOperation!, lastOperation: NSOperation!){
+    
+    let networkOperation = NetworkOperation(urlString: url)
+
+    
+    let parseOperation = ParseOperation()
+    parseOperation.addDependency(networkOperation)
+    
+    networkOperation.completionBlock = {
+      parseOperation.response = networkOperation.responseString
+    }
+    
+    
+    let saveOperation = SaveOperation(managedObjectContext: CoreDataManager.manager().managedObjectContext)
+    saveOperation.year = year
+    saveOperation.addDependency(parseOperation)
+    
+    parseOperation.completionBlock = {
+      saveOperation.responseDictionary = parseOperation.responseArray
+      
+    }
+    
+    operationQueue.addOperations([networkOperation, parseOperation, saveOperation], waitUntilFinished: false)
+
+    
+    return (networkOperation, saveOperation)
+  
+  }
+  
   func fetchFromUrl() {
     
-    operationQueue.waitUntilAllOperationsAreFinished()
+    var firstSetOfOperations = createOperationReturningFirstAndLastOperation(url: "https://developer.apple.com/videos/wwdc/2014/", forYear: "2014")
     
-    let networkOperation2014 = NetworkOperation(urlString: "https://developer.apple.com/videos/wwdc/2014/")
+    var secondSetOfOperations = createOperationReturningFirstAndLastOperation(url: "https://developer.apple.com/videos/wwdc/2013/", forYear: "2013")
     
-    
-    let parseOperation2014 = ParseOperation()
-    parseOperation2014.addDependency(networkOperation2014)
-    
-    networkOperation2014.completionBlock = {
-      parseOperation2014.response = networkOperation2014.responseString
-    }
-    
-    
-    operationQueue.addOperations([networkOperation2014, parseOperation2014], waitUntilFinished: false)
-    
-    
-    let saveOperation2014 = SaveOperation(managedObjectContext: CoreDataManager.manager().managedObjectContext)
-    saveOperation2014.year = "2014"
-    
-    saveOperation2014.addDependency(parseOperation2014)
-    
-    parseOperation2014.completionBlock = {
-      saveOperation2014.responseDictionary = parseOperation2014.responseArray
-      
-    }
-    
-    operationQueue.addOperation(saveOperation2014)
-    
-    
-    
-    
-    
-    let networkOperation2013: NetworkOperation = NetworkOperation(urlString: "https://developer.apple.com/videos/wwdc/2013/")
-    
-    networkOperation2013.addDependency(saveOperation2014)
-    
-    let parseOperation2013 = ParseOperation()
-    parseOperation2013.addDependency(networkOperation2013)
-    
-    networkOperation2013.completionBlock = {
-      parseOperation2013.response = networkOperation2013.responseString
-    }
-    
-    
-    operationQueue.addOperations([networkOperation2013, parseOperation2013], waitUntilFinished: false)
-    
-    
-    let saveOperation2013 = SaveOperation(managedObjectContext: CoreDataManager.manager().managedObjectContext)
-    saveOperation2013.year = "2013"
-    
-    saveOperation2013.addDependency(parseOperation2013)
-    
-    parseOperation2013.completionBlock = {
-      saveOperation2013.responseDictionary = parseOperation2013.responseArray
-      
-    }
-    
-    operationQueue.addOperation(saveOperation2013)
-    
-    
+    secondSetOfOperations.firstOperation.addDependency(firstSetOfOperations.lastOperation)
+  
   }
 }

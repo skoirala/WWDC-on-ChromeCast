@@ -18,11 +18,15 @@ class ParseOperation: NSOperation, NSXMLParserDelegate {
     
   }
   
+  let regexFor2010Onwards = "<li .*>(.*)<\\/li>\\s*.*\\s*.*<p>(.*)<\\/p>[\\w\\s]+<p.*\\s+<a href=\"(.*.mov)\">HD<\\/a>"
+  
+  let regexFor2013Onwards = "(?:<li class=\"thumbnail-title\">(.*))?<\\/li>.*<\\/li><li.*\\s+.*\\s+<p>(.*)<\\/p>\\s*<p .*\\s+<a href=\"(.*.mov\\?dl=1)\">HD<\\/a>"
+  
   override func main() {
     
     
    var errorPointer: NSError?
-    let regexString = "(?:<li class=\"thumbnail-title\">(.*))?<\\/li>.*<\\/li><li.*\\s+.*\\s+<p>(.*)<\\/p>\\s*<p .*\\s+<a href=\"(.*.mov\\?dl=1)\">HD<\\/a>"
+    let regexString = regexFor2013Onwards
    let regex = NSRegularExpression.regularExpressionWithPattern(regexString , options: NSRegularExpressionOptions.fromRaw(0)!, error: &errorPointer)
    let matches =  regex.matchesInString(response, options: NSMatchingOptions.ReportCompletion, range: NSMakeRange(0, response!.bridgeToObjectiveC().length))
     
