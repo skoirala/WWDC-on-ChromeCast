@@ -16,6 +16,8 @@ class ViewController: UITableViewController, CastControllerDelegate, UIPopoverPr
   
   var searchController: UISearchController?
   
+  //MARK: --- Lazy Initializer ---
+  
   lazy var fetchedResultsController: NSFetchedResultsController? = {
     
     let aFetchedResultsController = Item.fetchedResultsControllerForEntityNamed("Item", withPredicate:nil, sectionNameKey: nil, sortDescriptors: [NSSortDescriptor(key: "title", ascending: true)])
@@ -28,6 +30,8 @@ class ViewController: UITableViewController, CastControllerDelegate, UIPopoverPr
   lazy var operationManager: OperationManager = {
     return OperationManager()
   }()
+  
+  //Mark: ----------------------
   
   let castController = CastController()
   
@@ -86,14 +90,12 @@ class ViewController: UITableViewController, CastControllerDelegate, UIPopoverPr
     
     let searchResultController = storyboard.instantiateViewControllerWithIdentifier("SearchResultViewController") as SearchResultViewController
     searchResultController.delegate = self
-    
-    
     searchController = UISearchController(searchResultsController: searchResultController)
     searchController!.searchResultsUpdater = self
     definesPresentationContext = true
     searchController!.searchBar.frame = CGRectMake(0, 0, CGRectGetWidth(tableView.bounds), 44.0)
     tableView.tableHeaderView = searchController!.searchBar
-    
+    searchController!.searchBar.searchBarStyle = .Minimal
   }
   
   
@@ -273,19 +275,23 @@ class ViewController: UITableViewController, CastControllerDelegate, UIPopoverPr
   
   }
   
+  
+  //MARK: --- NSFetchedResultsControllerDelegate ---
+  
   func controllerDidChangeContent(controller: NSFetchedResultsController!) {
     tableView.reloadData()
   }
   
   func updateSearchResultsForSearchController(searchController: UISearchController!) {
+    
     let searchResultController = searchController.searchResultsController as SearchResultViewController
-    
+  
     searchResultController.searchString = searchController.searchBar.text
-    
-    
+  
   }
   
    func searchResultViewController(viewController: SearchResultViewController!, didSelectItem item: Item!) {
+    
     performSegueWithIdentifier("PlayingViewController", sender: item)
 
   }

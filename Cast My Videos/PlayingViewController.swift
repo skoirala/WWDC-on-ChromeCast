@@ -173,10 +173,10 @@ class PlayingViewController: UIViewController {
           let totalTime = self.timeFromDuration(self.duration!)
           self.item!.duration = totalTime as String
           CoreDataManager.manager().managedObjectContext.save(nil)
-          
+          self.scrubber!.enabled = true
+
           })
         
-        self.scrubber!.enabled = true
         
       default:
         

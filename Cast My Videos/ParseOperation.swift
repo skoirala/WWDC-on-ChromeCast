@@ -8,27 +8,83 @@
 
 import UIKit
 
-class ParseOperation: NSOperation, NSXMLParserDelegate {
-  var response: String?
+enum OperationState{
+  case  Initial ,Ready, Executing, Finished
+}
+
+
+class ParseOperation: NSOperation {
   
-  var responseArray: Array<[String: String!]>?
+  var year: String!
   
   
-  init(){
-    
+  init(_ year: String!){
+     self.year = year
   }
   
+  var state = OperationState.Initial
+  
+  var responseArray:  Array<[String: String!]>?
+
+  
+  
+  var response: String?{
+  didSet{
+    if response{
+      self.willChangeValueForKey("isReady")
+      state = .Ready
+      self.didChangeValueForKey("isReady")
+
+    }
+    }
+  }
+  
+  
+  override var ready: Bool{
+  return state == .Ready
+  }
+  
+  
+  override var executing: Bool{
+  return state == .Executing
+  }
+  
+  override var finished: Bool{
+  return state == .Finished
+  }
+  
+
   let regexFor2010Onwards = "<li .*>(.*)<\\/li>\\s*.*\\s*.*<p>(.*)<\\/p>[\\w\\s]+<p.*\\s+<a href=\"(.*.mov)\">HD<\\/a>"
   
   let regexFor2013Onwards = "(?:<li class=\"thumbnail-title\">(.*))?<\\/li>.*<\\/li><li.*\\s+.*\\s+<p>(.*)<\\/p>\\s*<p .*\\s+<a href=\"(.*.mov\\?dl=1)\">HD<\\/a>"
   
-  override func main() {
+  override func start(){
+
+    self.willChangeValueForKey("isReady")
+    self.willChangeValueForKey("isExecuting")
+    
+    state = .Executing
+    
+    self.didChangeValueForKey("isReady")
+    self.didChangeValueForKey("isExecuting")
     
     
-   var errorPointer: NSError?
-    let regexString = regexFor2013Onwards
-   let regex = NSRegularExpression.regularExpressionWithPattern(regexString , options: NSRegularExpressionOptions.fromRaw(0)!, error: &errorPointer)
-   let matches =  regex.matchesInString(response, options: NSMatchingOptions.ReportCompletion, range: NSMakeRange(0, response!.bridgeToObjectiveC().length))
+    
+    var errorPointer: NSError?
+  
+    var regexString: String
+    
+    if year == "2012"{
+    
+      regexString = regexFor2010Onwards
+    
+    }else{
+      
+      regexString =  regexFor2013Onwards
+    
+    }
+    let regex = NSRegularExpression.regularExpressionWithPattern(regexString , options: NSRegularExpressionOptions.fromRaw(0)!, error: &errorPointer)
+    let matches =  regex.matchesInString(response, options: NSMatchingOptions.ReportCompletion, range: NSMakeRange(0, response!.bridgeToObjectiveC().length))
     
     responseArray = Array<[String: String!]>()
     var results = Array<[String: String!]>()
@@ -43,7 +99,7 @@ class ParseOperation: NSOperation, NSXMLParserDelegate {
         let contentString = self.response!.bridgeToObjectiveC().substringWithRange(contentRange)
         
         
-    
+        
         let linkRange = textCheckingResult.rangeAtIndex(3)
         let linkString = self.response!.bridgeToObjectiveC().substringWithRange(linkRange)
         
@@ -53,9 +109,15 @@ class ParseOperation: NSOperation, NSXMLParserDelegate {
       }
     }
     responseArray = results
-
+    
+    self.willChangeValueForKey("isFinished")
+    self.willChangeValueForKey("isExecuting")
+    self.state = .Finished
+    self.didChangeValueForKey("isExecuting")
+    self.didChangeValueForKey("isFinished")
     
   }
+  
   
 
   

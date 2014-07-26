@@ -57,7 +57,7 @@ class CastController: NSObject, GCKDeviceScannerListener, GCKDeviceManagerDelega
     metadata.setString(string.componentsSeparatedByString("_").bridgeToObjectiveC().componentsJoinedByString(" "), forKey: kGCKMetadataKeyTitle)
       
     
-    let mediaInformation  = GCKMediaInformation(contentID: string, streamType: GCKMediaStreamType.None, contentType: "video/mp4", metadata: metadata, streamDuration: 0, mediaTracks: nil, textTrackStyle: nil, customData: nil)
+    let mediaInformation  = GCKMediaInformation(contentID: string, streamType: GCKMediaStreamType.None, contentType: "video/mov", metadata: metadata, streamDuration: 0, mediaTracks: nil, textTrackStyle: nil, customData: nil)
     
     
     

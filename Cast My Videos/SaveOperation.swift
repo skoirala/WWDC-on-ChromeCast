@@ -9,9 +9,6 @@
 import CoreData
 
 
-enum OperationState{
-  case  Initial ,Ready, Executing, Finished
-}
 
 class SaveOperation: NSOperation {
   
@@ -58,16 +55,16 @@ class SaveOperation: NSOperation {
   
   
   override var ready: Bool{
-    return state == .Ready
+    return state == OperationState.Ready
   }
   
   
   override var executing: Bool{
-    return state == .Executing
+    return state == OperationState.Executing
   }
   
   override var finished: Bool{
-    return state == .Finished
+    return state == OperationState.Finished
   }
   
   override func start(){

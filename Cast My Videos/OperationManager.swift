@@ -24,7 +24,7 @@ class OperationManager: NSObject {
     let networkOperation = NetworkOperation(urlString: url)
 
     
-    let parseOperation = ParseOperation()
+    let parseOperation = ParseOperation(year)
     parseOperation.addDependency(networkOperation)
     
     networkOperation.completionBlock = {
@@ -55,6 +55,6 @@ class OperationManager: NSObject {
     var secondSetOfOperations = createOperationReturningFirstAndLastOperation(url: "https://developer.apple.com/videos/wwdc/2013/", forYear: "2013")
     
     secondSetOfOperations.firstOperation.addDependency(firstSetOfOperations.lastOperation)
-  
+    
   }
 }
