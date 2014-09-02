@@ -87,7 +87,6 @@ class ParseOperation: BaseOperation {
           
           
           var dict = ["title": titleString, "content": contentString, "url": linkString]
-          println(dict)
           results.append(dict)
         }
         

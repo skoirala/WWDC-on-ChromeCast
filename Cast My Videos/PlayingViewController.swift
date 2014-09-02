@@ -13,11 +13,13 @@ import QuartzCore
 
 class PlayingViewController: UIViewController {
   
-  @IBOutlet var playPauseButton: UIButton?
+  @IBOutlet var playPauseButton: UIButton!
   
-  @IBOutlet var timerLabel: UILabel?
+  @IBOutlet var timerLabel: UILabel!
   
-  @IBOutlet var scrubber: UISlider?
+  @IBOutlet var playerView: PlayerView!
+  
+  @IBOutlet var scrubber: UISlider!
   
   var displayLink: CADisplayLink?
   
@@ -142,6 +144,9 @@ class PlayingViewController: UIViewController {
   override func viewDidLoad() {
     
     super.viewDidLoad()
+  
+    playerView.playWithUrlString(item!.url)
+    
     
     println(item?.url)
     

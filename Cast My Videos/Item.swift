@@ -18,7 +18,8 @@ class Item: NSManagedObject {
     @NSManaged var duration: String?
     @NSManaged var content: String?
     @NSManaged var year: String?
-  
+    @NSManaged var favorite: Favorite?
+    @NSManaged var userDefined: ObjCBool
   
   
 }

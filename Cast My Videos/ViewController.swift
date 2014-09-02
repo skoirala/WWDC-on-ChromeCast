@@ -8,19 +8,34 @@
 
 import UIKit
 import CoreData
+import AVKit
+import AVFoundation
+import MediaPlayer
 
 let CellIdentifier = "CellIdentifier"
+
+
+
 
 
 class ViewController: UITableViewController, CastControllerDelegate, UIPopoverPresentationControllerDelegate, NSFetchedResultsControllerDelegate, UISearchResultsUpdating, SearchResultViewControllerDelegate {
   
   var searchController: UISearchController?
   
+  
+  var airplayPlayer: AVPlayer!
+  
+  var airplayWindow: UIWindow?
+  
+  
+  let wwdcVideoPredicates = NSPredicate(format: "userDefined = false", argumentArray: nil)
+  
+  let userDefinedVideoPredicates = NSPredicate(format: "userDefined = true", argumentArray: nil)
+  
   //MARK: --- Lazy Initializer ---
   
   lazy var fetchedResultsController: NSFetchedResultsController? = {
-    
-    let aFetchedResultsController = Item.fetchedResultsControllerForEntityNamed("Item", withPredicate:nil, sectionNameKey: nil, sortDescriptors: [NSSortDescriptor(key: "title", ascending: true)])
+    let aFetchedResultsController = Item.fetchedResultsControllerForEntityNamed("Item", withPredicate:self.wwdcVideoPredicates, sectionNameKey: nil, sortDescriptors: [NSSortDescriptor(key: "title", ascending: true)])
     aFetchedResultsController!.delegate = self
     
     return aFetchedResultsController
@@ -40,11 +55,16 @@ class ViewController: UITableViewController, CastControllerDelegate, UIPopoverPr
   
   
   var videos: Array<String> =  Array<String>()
-                            
+  
+  
+  
+  
+  
   override func viewDidLoad() {
     
     super.viewDidLoad()
     
+    println(UIScreen.screens())
     
     prepareSearchController()
     
@@ -64,9 +84,43 @@ class ViewController: UITableViewController, CastControllerDelegate, UIPopoverPr
     
   }
   
+  func externalScreenConnected(notification: NSNotification){
+    let screen = notification.object as UIScreen
+    let viewController = AVPlayerViewController() as AVPlayerViewController
+    viewController.showsPlaybackControls = true
+    let player = AVPlayer(URL: NSURL(string: (fetchedResultsController?.fetchedObjects.first  as Item).url!))
+    player.allowsExternalPlayback = true
+//    viewController.player = player
+//    
+//    let allWindows = UIApplication.sharedApplication().windows as [UIWindow]
+//    
+//    var window : UIWindow?
+//    
+//    for aWindow in allWindows{
+//      
+//      if aWindow.screen == screen{
+//        window = aWindow
+//        break
+//      }
+//      
+//    }
+//    
+//    if window == nil{
+//      
+//      window = UIWindow(frame: screen.bounds)
+//      window!.screen = screen
+//      window!.rootViewController = viewController
+//      window!.hidden = false
+//      airplayWindow = window
+//    }
+    
+  }
+  
   func prepareView(){
     
-    tableView.rowHeight = UITableViewAutomaticDimension
+    NSNotificationCenter.defaultCenter().addObserver(self, selector: "externalScreenConnected:", name: UIScreenDidConnectNotification, object: nil)
+
+  tableView.rowHeight = UITableViewAutomaticDimension
     
     tableView.estimatedRowHeight = 44.0
     
@@ -80,10 +134,23 @@ class ViewController: UITableViewController, CastControllerDelegate, UIPopoverPr
     
     devicesBarButtonItem!.enabled = false
     
-    let alertBarButtonItem = UIBarButtonItem(title: "Url", style: .Plain, target: self, action: "inputUrl:")
+    let alertBarButtonItem = UIBarButtonItem(barButtonSystemItem: .Add, target: self, action: "inputUrl:")
     
-    navigationItem.leftBarButtonItem = alertBarButtonItem
+    navigationItem.rightBarButtonItem = alertBarButtonItem
     
+    let segmentedControl = UISegmentedControl(items: ["WWDC", "My Own"]);
+    navigationItem.titleView = segmentedControl
+    
+    segmentedControl.selectedSegmentIndex = 0
+    segmentedControl.addTarget(self, action: "segmentedControlValueChanged:", forControlEvents: .ValueChanged)
+    
+  }
+  
+  func segmentedControlValueChanged(sender: UISegmentedControl!){
+    
+     fetchedResultsController = Item.fetchedResultsControllerForEntityNamed("Item", withPredicate: sender.selectedSegmentIndex == 0 ? wwdcVideoPredicates : userDefinedVideoPredicates, sectionNameKey: nil, sortDescriptors: [NSSortDescriptor(key: "title", ascending: true)])
+    fetchedResultsController?.delegate = self
+    tableView.reloadSections(NSIndexSet(index: 0), withRowAnimation: .Automatic)
   }
   
   func prepareSearchController(){
@@ -111,11 +178,10 @@ class ViewController: UITableViewController, CastControllerDelegate, UIPopoverPr
       
       })
     
-    alertController.addAction(UIAlertAction(title: "Ok", style: .Cancel, handler: {
+    alertController.addAction(UIAlertAction(title: "Ok", style: .Default, handler: {
       (alertAction: UIAlertAction!) in
       
-      if((self.castController.selectedDevice) != nil){
-        
+      
         let theTextField =  alertController.textFields[0]  as UITextField
         
           let string = theTextField.text
@@ -135,28 +201,22 @@ class ViewController: UITableViewController, CastControllerDelegate, UIPopoverPr
             
             
               item.url = string
+              item.userDefined = ObjCBool(true)
             }
             
             var error : NSError?
             CoreDataManager.manager().managedObjectContext.save(&error)
-            
-            let playingViewController = self.storyboard.instantiateViewControllerWithIdentifier("PlayingViewController") as PlayingViewController
-            
-            playingViewController.item = item
-            
-            self.navigationController.pushViewController(playingViewController, animated: true)
-            
-            playingViewController.castController = self.castController
-          
-          }
-        
         }
-      
       }))
+    
+    alertController.addAction(UIAlertAction(title: "Cancel", style: .Cancel, handler: nil))
     
     presentViewController(alertController, animated: true, completion: nil)
     
   }
+  
+  
+  
   
   func showDevices(button: UIBarButtonItem!){
     
@@ -184,13 +244,20 @@ class ViewController: UITableViewController, CastControllerDelegate, UIPopoverPr
   
   override func tableView(tableView: UITableView!, didSelectRowAtIndexPath indexPath: NSIndexPath!) {
     
-    if let selectedDevice = castController.selectedDevice{
-      
+//    let player = AVPlayer(URL: NSURL(string: (fetchedResultsController?.fetchedObjects[indexPath.row]  as Item).url!))
+//    player.allowsExternalPlayback = true
+//    player.usesExternalPlaybackWhileExternalScreenIsActive = true
+//    self.airplayPlayer = player
+//    player.play()
+    
+    
+//    if let selectedDevice = castController.selectedDevice{
+    
       tableView.deselectRowAtIndexPath(indexPath, animated: true)
     
       performSegueWithIdentifier("PlayingViewController", sender: fetchedResultsController?.fetchedObjects[indexPath.row])
     
-    }
+//    }
   }
   
   override func prepareForSegue(segue: UIStoryboardSegue!, sender: AnyObject!) {
@@ -246,7 +313,7 @@ class ViewController: UITableViewController, CastControllerDelegate, UIPopoverPr
       
     }
     
-    alertController.addAction(UIAlertAction(title: "Ok", style: .Cancel, handler: {
+    alertController.addAction(UIAlertAction(title: "Ok", style: .Default, handler: {
       (alertAction: UIAlertAction!) in
       let theTextField =  alertController.textFields[0]  as UITextField
       
@@ -258,6 +325,8 @@ class ViewController: UITableViewController, CastControllerDelegate, UIPopoverPr
           CoreDataManager.manager().managedObjectContext.save(nil)
         }
       }))
+    
+    alertController.addAction(UIAlertAction(title: "Cancel", style: .Cancel, handler: nil))
     presentViewController(alertController, animated: true, completion: nil)
     
   }

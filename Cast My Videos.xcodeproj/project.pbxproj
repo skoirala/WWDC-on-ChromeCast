@@ -7,10 +7,13 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		2C0A837119B5BA9500D09DAB /* Favorite.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2C0A837019B5BA9500D09DAB /* Favorite.swift */; };
+		2C0A837319B5C06D00D09DAB /* film.png in Resources */ = {isa = PBXBuildFile; fileRef = 2C0A837219B5C06D00D09DAB /* film.png */; };
 		2C115653197DFD05004A317B /* OperationManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2C115652197DFD05004A317B /* OperationManager.swift */; };
 		2C543461197D9A1F000971B5 /* SaveOperation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2C543460197D9A1F000971B5 /* SaveOperation.swift */; };
 		2C543463197DDB17000971B5 /* SearchResultViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2C543462197DDB17000971B5 /* SearchResultViewController.swift */; };
 		2C543465197DE9FB000971B5 /* SearchItemTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2C543464197DE9FB000971B5 /* SearchItemTableViewCell.swift */; };
+		2C59406B19B6002C009D0DBA /* PlayerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2C59406A19B6002C009D0DBA /* PlayerView.swift */; };
 		2C8835DE1979CB5600FF1A9E /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2C8835DD1979CB5600FF1A9E /* AppDelegate.swift */; };
 		2C8835E01979CB5600FF1A9E /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2C8835DF1979CB5600FF1A9E /* ViewController.swift */; };
 		2C8835E31979CB5600FF1A9E /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 2C8835E11979CB5600FF1A9E /* Main.storyboard */; };
@@ -42,10 +45,13 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		2C0A837019B5BA9500D09DAB /* Favorite.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Favorite.swift; sourceTree = "<group>"; };
+		2C0A837219B5C06D00D09DAB /* film.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = film.png; sourceTree = "<group>"; };
 		2C115652197DFD05004A317B /* OperationManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = OperationManager.swift; sourceTree = "<group>"; };
 		2C543460197D9A1F000971B5 /* SaveOperation.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SaveOperation.swift; sourceTree = "<group>"; };
 		2C543462197DDB17000971B5 /* SearchResultViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SearchResultViewController.swift; sourceTree = "<group>"; };
 		2C543464197DE9FB000971B5 /* SearchItemTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SearchItemTableViewCell.swift; sourceTree = "<group>"; };
+		2C59406A19B6002C009D0DBA /* PlayerView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PlayerView.swift; sourceTree = "<group>"; };
 		2C8835D81979CB5600FF1A9E /* Cast My Videos.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Cast My Videos.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		2C8835DC1979CB5600FF1A9E /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		2C8835DD1979CB5600FF1A9E /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -116,6 +122,7 @@
 			children = (
 				2C8836071979CBFC00FF1A9E /* NetworkOperation.swift */,
 				2C8836051979CBDE00FF1A9E /* CastController.swift */,
+				2C0A837219B5C06D00D09DAB /* film.png */,
 				2C8835DD1979CB5600FF1A9E /* AppDelegate.swift */,
 				2C8835DF1979CB5600FF1A9E /* ViewController.swift */,
 				2C8835E11979CB5600FF1A9E /* Main.storyboard */,
@@ -126,6 +133,7 @@
 				2C88360B1979F93900FF1A9E /* DevicePopoverViewController.swift */,
 				2C88360D197A017400FF1A9E /* PlayingViewController.swift */,
 				2CE4AA88197D44F8002EE2B8 /* DataModel.xcdatamodeld */,
+				2C0A837019B5BA9500D09DAB /* Favorite.swift */,
 				2CE4AA96197D625F002EE2B8 /* Item.swift */,
 				2CE4AA90197D57C6002EE2B8 /* CoreDataManager.swift */,
 				2CE4AA98197D6F67002EE2B8 /* ItemTableViewCell.swift */,
@@ -134,6 +142,7 @@
 				2C543464197DE9FB000971B5 /* SearchItemTableViewCell.swift */,
 				2C115652197DFD05004A317B /* OperationManager.swift */,
 				2CD7F393198D378300346279 /* BaseOperation.swift */,
+				2C59406A19B6002C009D0DBA /* PlayerView.swift */,
 			);
 			path = "Cast My Videos";
 			sourceTree = "<group>";
@@ -255,6 +264,7 @@
 			files = (
 				2C8835E31979CB5600FF1A9E /* Main.storyboard in Resources */,
 				2C8835E51979CB5600FF1A9E /* Images.xcassets in Resources */,
+				2C0A837319B5C06D00D09DAB /* film.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -281,10 +291,12 @@
 				2C543465197DE9FB000971B5 /* SearchItemTableViewCell.swift in Sources */,
 				2C8835DE1979CB5600FF1A9E /* AppDelegate.swift in Sources */,
 				2C115653197DFD05004A317B /* OperationManager.swift in Sources */,
+				2C59406B19B6002C009D0DBA /* PlayerView.swift in Sources */,
 				2C8836061979CBDE00FF1A9E /* CastController.swift in Sources */,
 				2CD7F394198D378300346279 /* BaseOperation.swift in Sources */,
 				2CE4AA91197D57C6002EE2B8 /* CoreDataManager.swift in Sources */,
 				2CE4AA99197D6F67002EE2B8 /* ItemTableViewCell.swift in Sources */,
+				2C0A837119B5BA9500D09DAB /* Favorite.swift in Sources */,
 				2C543461197D9A1F000971B5 /* SaveOperation.swift in Sources */,
 				2C543463197DDB17000971B5 /* SearchResultViewController.swift in Sources */,
 				2C88360E197A017400FF1A9E /* PlayingViewController.swift in Sources */,

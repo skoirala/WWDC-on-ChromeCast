@@ -10,9 +10,9 @@ import UIKit
 
 class ItemTableViewCell: UITableViewCell {
   
-  @IBOutlet var nameLabel: UILabel?
-  @IBOutlet var durationLabel: UILabel?
-  @IBOutlet var yearLabel: UILabel?
+  @IBOutlet var nameLabel: UILabel!
+  @IBOutlet var durationLabel: UILabel!
+  @IBOutlet var yearLabel: UILabel!
 
 
     override init(style: UITableViewCellStyle, reuseIdentifier: String) {
@@ -46,39 +46,39 @@ class ItemTableViewCell: UITableViewCell {
     
     super.prepareForReuse()
   
-    nameLabel!.text = ""
+    nameLabel.text = ""
   
-    durationLabel!.text = ""
+    durationLabel.text = ""
   }
   
   func setItem(item: Item){
     
     if let name = item.title {
       
-      if name.lengthOfBytesUsingEncoding(NSUTF8StringEncoding) > 25{
-        nameLabel!.text = "\(name.substringToIndex(advance(name.startIndex, 25)))"
+      if name.lengthOfBytesUsingEncoding(NSUTF8StringEncoding) > 28{
+        nameLabel.text = "\(name.substringToIndex(advance(name.startIndex, 28)))"
       }else{
-        nameLabel!.text = name
+        nameLabel.text = name
       }
 
     
     }else{
       
-      if item.url!.lengthOfBytesUsingEncoding(NSASCIIStringEncoding) > 25{
-        nameLabel!.text = "\(item.url?.substringToIndex(advance(item.url!.startIndex, 25)))..."
+      if item.url!.utf16Count > 28{
+        nameLabel.text = "\(item.url!.substringToIndex(advance(item.url!.startIndex, 28)))..."
       }else{
-        nameLabel!.text = item.url!
+        nameLabel.text = item.url!
       }
     }
     
     if let duration = item.duration{
       
-      durationLabel!.text = duration
+      durationLabel.text = duration
       
     }
     
     if let year = item.year{
-      yearLabel!.text = year
+      yearLabel.text = year
     }
     
   }
