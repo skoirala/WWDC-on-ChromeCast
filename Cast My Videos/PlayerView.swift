@@ -23,20 +23,18 @@ class PlayerView: UIView {
   
   override init(frame: CGRect) {
     super.init(frame: frame)
+    setup()
+  }
+  
+  func setup(){
     let playerLayer = layer as AVPlayerLayer
     playerLayer.player = player
-    playerLayer.videoGravity = AVLayerVideoGravityResize
-    playerLayer.contentsCenter = CGRectMake(0, 0, 1, 1)
-    
+    playerLayer.videoGravity = AVLayerVideoGravityResizeAspect
   }
  
   required init(coder aDecoder: NSCoder) {
     super.init(coder: aDecoder)
-    let playerLayer = layer as AVPlayerLayer
-    playerLayer.player = player
-    playerLayer.videoGravity = AVLayerVideoGravityResizeAspectFill
-
-
+    setup()
   }
   
   

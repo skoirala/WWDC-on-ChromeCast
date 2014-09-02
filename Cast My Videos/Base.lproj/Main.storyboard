@@ -164,7 +164,7 @@
                                 <nil key="highlightedColor"/>
                             </label>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Cvl-BL-a0P" customClass="PlayerView" customModule="Cast_My_Videos" customModuleProvider="target">
-                                <rect key="frame" x="0.0" y="72" width="600" height="300"/>
+                                <rect key="frame" x="4" y="72" width="591" height="300"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="300" id="EYy-QG-3AG"/>
@@ -175,9 +175,9 @@
                         <constraints>
                             <constraint firstAttribute="trailing" secondItem="hOz-jT-zzO" secondAttribute="trailing" constant="20" id="I6N-pd-Fh8"/>
                             <constraint firstItem="Cvl-BL-a0P" firstAttribute="bottom" secondItem="hOz-jT-zzO" secondAttribute="top" constant="-20" id="O7x-eF-du5"/>
-                            <constraint firstItem="Cvl-BL-a0P" firstAttribute="leading" secondItem="ghX-J5-m7T" secondAttribute="leading" id="Qbi-CM-TKy"/>
+                            <constraint firstItem="Cvl-BL-a0P" firstAttribute="leading" secondItem="ghX-J5-m7T" secondAttribute="leading" constant="4" id="Qbi-CM-TKy"/>
                             <constraint firstItem="3cX-Iu-myQ" firstAttribute="trailing" secondItem="hOz-jT-zzO" secondAttribute="trailing" id="TRu-5C-PGZ"/>
-                            <constraint firstAttribute="trailing" secondItem="Cvl-BL-a0P" secondAttribute="trailing" id="Xug-mp-YCC"/>
+                            <constraint firstAttribute="trailing" secondItem="Cvl-BL-a0P" secondAttribute="trailing" constant="5" id="Xug-mp-YCC"/>
                             <constraint firstItem="hOz-jT-zzO" firstAttribute="leading" secondItem="ghX-J5-m7T" secondAttribute="leading" constant="20" id="fi5-1v-dyO"/>
                             <constraint firstItem="3cX-Iu-myQ" firstAttribute="top" secondItem="vRe-H3-po7" secondAttribute="top" constant="4" id="kh1-UL-stz"/>
                             <constraint firstItem="hOz-jT-zzO" firstAttribute="leading" secondItem="vRe-H3-po7" secondAttribute="leading" id="rgF-2D-poR"/>
