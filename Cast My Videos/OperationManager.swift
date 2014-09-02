@@ -8,8 +8,16 @@
 
 import UIKit
 
+
 class OperationManager: NSObject {
- 
+  
+  
+  
+  
+  let ParseOperationObservingContext = UnsafeMutablePointer<Int>(bitPattern: 1)
+  
+  let SaveOperationObservingContext = UnsafeMutablePointer<Int>(bitPattern: 2)
+  
   lazy var operationQueue: NSOperationQueue = {
     let operationQueue = NSOperationQueue()
     operationQueue.maxConcurrentOperationCount = 4
@@ -17,6 +25,8 @@ class OperationManager: NSObject {
 
     return operationQueue
   }()
+  
+  
   
   
   func createOperationReturningFirstAndLastOperation(#url: String!, forYear year: String!) -> (firstOperation:NSOperation!, lastOperation: NSOperation!){
@@ -32,6 +42,7 @@ class OperationManager: NSObject {
     }
     
     
+    
     let saveOperation = SaveOperation(managedObjectContext: CoreDataManager.manager().managedObjectContext)
     saveOperation.year = year
     saveOperation.addDependency(parseOperation)
@@ -42,7 +53,17 @@ class OperationManager: NSObject {
     }
     
     operationQueue.addOperations([networkOperation, parseOperation, saveOperation], waitUntilFinished: false)
+    
+    let parseOperationProgress = parseOperation.progress
+    
+    parseOperationProgress.addObserver(self, forKeyPath: "fractionCompleted", options: .New, context: ParseOperationObservingContext)
+    
+    let saveOperationProgress = saveOperation.progress
+    
+    saveOperation.addObserver(self, forKeyPath: "fractionCompleted", options: .New, context: SaveOperationObservingContext)
 
+    
+    
     
     return (networkOperation, saveOperation)
   
@@ -57,4 +78,25 @@ class OperationManager: NSObject {
     secondSetOfOperations.firstOperation.addDependency(firstSetOfOperations.lastOperation)
     
   }
+  
+  override func observeValueForKeyPath(keyPath: String!, ofObject object: AnyObject!, change: [NSObject : AnyObject]!, context: UnsafeMutablePointer<Void>) {
+    if keyPath == "fractionCompleted"{
+      if context == ParseOperationObservingContext{
+        
+        println("Completed \(change[NSKeyValueChangeNewKey])) % parsing")
+        
+      }else if context == SaveOperationObservingContext{
+        
+        println("Completed \(change) % saving")
+        
+      }
+      
+    }else{
+      
+      super.observeValueForKeyPath(keyPath, ofObject: object, change: change, context: context)
+      
+    }
+  }
 }
+  
+ 

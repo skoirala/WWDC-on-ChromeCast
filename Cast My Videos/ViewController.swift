@@ -114,7 +114,7 @@ class ViewController: UITableViewController, CastControllerDelegate, UIPopoverPr
     alertController.addAction(UIAlertAction(title: "Ok", style: .Cancel, handler: {
       (alertAction: UIAlertAction!) in
       
-      if(self.castController.selectedDevice){
+      if((self.castController.selectedDevice) != nil){
         
         let theTextField =  alertController.textFields[0]  as UITextField
         

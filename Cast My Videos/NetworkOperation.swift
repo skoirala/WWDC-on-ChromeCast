@@ -19,6 +19,7 @@ class NetworkOperation:NSOperation {
   }
   
   override func main() {
+    
     let url = NSURL(string: urlString)
     let urlRequest = NSURLRequest(URL: url)
     

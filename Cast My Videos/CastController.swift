@@ -27,7 +27,7 @@ class CastController: NSObject, GCKDeviceScannerListener, GCKDeviceManagerDelega
   
   var allFoundDevices = Array<GCKDevice>()
 
-  init(){
+  override init(){
     deviceScanner = GCKDeviceScanner()
     mediaControlChannel = GCKMediaControlChannel()
     super.init()
@@ -54,7 +54,13 @@ class CastController: NSObject, GCKDeviceScannerListener, GCKDeviceManagerDelega
   func playVideo(string: String!){
     
     let metadata = GCKMediaMetadata()
-    metadata.setString(string.componentsSeparatedByString("_").bridgeToObjectiveC().componentsJoinedByString(" "), forKey: kGCKMetadataKeyTitle)
+    
+    let splittedString = split(string, {$0 == "_"}, maxSplit: Int.max, allowEmptySlices: false)
+    
+    let joinedString = " ".join(splittedString)
+    
+    
+    metadata.setString(joinedString, forKey: kGCKMetadataKeyTitle)
       
     
     let mediaInformation  = GCKMediaInformation(contentID: string, streamType: GCKMediaStreamType.None, contentType: "video/mov", metadata: metadata, streamDuration: 0, mediaTracks: nil, textTrackStyle: nil, customData: nil)
@@ -77,7 +83,10 @@ class CastController: NSObject, GCKDeviceScannerListener, GCKDeviceManagerDelega
   
   func playVideo(string: String!, fromTime time: Double){
     let metadata = GCKMediaMetadata()
-    metadata.setString(string.componentsSeparatedByString("_").bridgeToObjectiveC().componentsJoinedByString(" "), forKey: kGCKMetadataKeyTitle)
+    let separatedString = split(string, {$0 == "_"}, maxSplit: Int.max, allowEmptySlices: false)
+    let joinedString = " ".join(separatedString)
+    
+    metadata.setString(joinedString, forKey: kGCKMetadataKeyTitle)
     
     
     let mediaInformation  = GCKMediaInformation(contentID: string, streamType: GCKMediaStreamType.None, contentType: "video/mp4", metadata: metadata, streamDuration: 0, mediaTracks: nil, textTrackStyle: nil, customData: nil)
@@ -102,7 +111,7 @@ class CastController: NSObject, GCKDeviceScannerListener, GCKDeviceManagerDelega
     
     if existing.count == 0{
       println("Device Found \(device.friendlyName)")
-      allFoundDevices += device
+      allFoundDevices.append(device)
     }
     
     delegate?.castController(self, didChangeDevices: allFoundDevices)

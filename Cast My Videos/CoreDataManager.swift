@@ -50,7 +50,7 @@ class CoreDataManager {
     
     let documentDirectory = NSFileManager.defaultManager().URLForDirectory(.DocumentDirectory, inDomain: .UserDomainMask, appropriateForURL: nil, create: false, error: nil)
     
-    let fileUrl = documentDirectory.URLByAppendingPathComponent("Item.sqlite")
+    let fileUrl = documentDirectory?.URLByAppendingPathComponent("Item.sqlite")
     
     
     let persistentStoreCoordinator = NSPersistentStoreCoordinator(managedObjectModel: managedObjectModel)
@@ -59,7 +59,7 @@ class CoreDataManager {
     
     let persistentStore: NSPersistentStore? = persistentStoreCoordinator.addPersistentStoreWithType(NSSQLiteStoreType, configuration: nil, URL: fileUrl, options: options, error: &error)
     
-    if !persistentStore{
+    if persistentStore != nil{
       if let theError = error{
         println("Could not create persistent store %d", theError.localizedDescription)
         exit(0);

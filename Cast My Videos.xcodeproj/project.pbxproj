@@ -24,6 +24,7 @@
 		2C88360A1979E23100FF1A9E /* ParseOperation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2C8836091979E23100FF1A9E /* ParseOperation.swift */; };
 		2C88360C1979F93900FF1A9E /* DevicePopoverViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2C88360B1979F93900FF1A9E /* DevicePopoverViewController.swift */; };
 		2C88360E197A017400FF1A9E /* PlayingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2C88360D197A017400FF1A9E /* PlayingViewController.swift */; };
+		2CD7F394198D378300346279 /* BaseOperation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2CD7F393198D378300346279 /* BaseOperation.swift */; };
 		2CE4AA8A197D44F8002EE2B8 /* DataModel.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 2CE4AA88197D44F8002EE2B8 /* DataModel.xcdatamodeld */; };
 		2CE4AA91197D57C6002EE2B8 /* CoreDataManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2CE4AA90197D57C6002EE2B8 /* CoreDataManager.swift */; };
 		2CE4AA97197D625F002EE2B8 /* Item.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2CE4AA96197D625F002EE2B8 /* Item.swift */; };
@@ -63,6 +64,7 @@
 		2C8836091979E23100FF1A9E /* ParseOperation.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ParseOperation.swift; sourceTree = "<group>"; };
 		2C88360B1979F93900FF1A9E /* DevicePopoverViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DevicePopoverViewController.swift; sourceTree = "<group>"; };
 		2C88360D197A017400FF1A9E /* PlayingViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PlayingViewController.swift; sourceTree = "<group>"; };
+		2CD7F393198D378300346279 /* BaseOperation.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BaseOperation.swift; sourceTree = "<group>"; };
 		2CE4AA89197D44F8002EE2B8 /* DataModel.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = DataModel.xcdatamodel; sourceTree = "<group>"; };
 		2CE4AA90197D57C6002EE2B8 /* CoreDataManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CoreDataManager.swift; sourceTree = "<group>"; };
 		2CE4AA96197D625F002EE2B8 /* Item.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Item.swift; sourceTree = "<group>"; };
@@ -131,6 +133,7 @@
 				2C543462197DDB17000971B5 /* SearchResultViewController.swift */,
 				2C543464197DE9FB000971B5 /* SearchItemTableViewCell.swift */,
 				2C115652197DFD05004A317B /* OperationManager.swift */,
+				2CD7F393198D378300346279 /* BaseOperation.swift */,
 			);
 			path = "Cast My Videos";
 			sourceTree = "<group>";
@@ -279,6 +282,7 @@
 				2C8835DE1979CB5600FF1A9E /* AppDelegate.swift in Sources */,
 				2C115653197DFD05004A317B /* OperationManager.swift in Sources */,
 				2C8836061979CBDE00FF1A9E /* CastController.swift in Sources */,
+				2CD7F394198D378300346279 /* BaseOperation.swift in Sources */,
 				2CE4AA91197D57C6002EE2B8 /* CoreDataManager.swift in Sources */,
 				2CE4AA99197D6F67002EE2B8 /* ItemTableViewCell.swift in Sources */,
 				2C543461197D9A1F000971B5 /* SaveOperation.swift in Sources */,

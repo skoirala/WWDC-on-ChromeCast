@@ -20,8 +20,9 @@ class SearchItemTableViewCell: ItemTableViewCell {
     
     if let name = item.title {
       
-      if name.bridgeToObjectiveC().length > 30{
-        nameLabel!.text = "\(name.bridgeToObjectiveC().substringToIndex(30))..."
+      if name.lengthOfBytesUsingEncoding(NSASCIIStringEncoding) > 30{
+        let upperLimit = advance(item.url!.startIndex, 30)
+        nameLabel!.text = "\(name.substringToIndex(upperLimit))..."
       }else{
         nameLabel!.text = name
       }
@@ -29,8 +30,11 @@ class SearchItemTableViewCell: ItemTableViewCell {
       
     }else{
       
-      if item.url!.bridgeToObjectiveC().length > 30{
-        nameLabel!.text = "\(item.url!.bridgeToObjectiveC().substringToIndex(30))..."
+      
+      if item.url!.lengthOfBytesUsingEncoding(NSASCIIStringEncoding) > 30{
+        let upperLimit = advance(item.url!.startIndex, 30)
+        nameLabel!.text = "\(item.url!.substringToIndex(upperLimit))..."
+        
       }else{
         nameLabel!.text = item.url!
       }

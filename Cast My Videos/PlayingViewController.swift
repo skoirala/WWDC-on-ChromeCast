@@ -35,7 +35,7 @@ class PlayingViewController: UIViewController {
   
   @IBAction func playButtonTapped(button: UIButton!){
     
-    if !displayLink{
+    if !(displayLink != nil){
       
       displayLink = CADisplayLink(target: self, selector: "updateSlider:")
       displayLink!.frameInterval = 60
@@ -81,13 +81,13 @@ class PlayingViewController: UIViewController {
       
       let streamPosition = castController!.mediaControlChannel?.mediaStatus?.streamPosition
       
-      if streamPosition{
+      if (streamPosition != nil){
         
         currentTime = CMTimeMakeWithSeconds(streamPosition!, 10)
         
         updateTimerLabel()
         
-        if duration{
+        if (duration != nil){
         
           let durationInSeconds = CMTimeGetSeconds(duration!)
         
@@ -153,7 +153,7 @@ class PlayingViewController: UIViewController {
     refinedUrl = item?.url!
     
     scrubber!.enabled = false
-    let url = NSURL(string: refinedUrl)
+    let url = NSURL(string: refinedUrl!)
     
     let avAsset = AVURLAsset(URL: url, options: nil)
     
@@ -188,7 +188,7 @@ class PlayingViewController: UIViewController {
   
   func updateTimerLabel(){
     
-    if duration{
+    if (duration != nil){
       let totalTime = timeFromDuration(self.duration!)
       
       let currentTime = timeFromDuration(self.currentTime)

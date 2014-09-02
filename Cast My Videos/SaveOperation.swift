@@ -10,12 +10,12 @@ import CoreData
 
 
 
-class SaveOperation: NSOperation {
+class SaveOperation: BaseOperation {
   
-  
-  var state = OperationState.Initial
+
   
   var year: String!
+  
   
   
   var savingManagedObjectContext: NSManagedObjectContext?
@@ -26,13 +26,15 @@ class SaveOperation: NSOperation {
   
   
   
-  var responseDictionary: Array<Dictionary<String, String!>>?{
+  var responseDictionary: Array<Dictionary<String, String>>?{
+  
     didSet{
-      self.willChangeValueForKey("isReady")
-      if responseDictionary{
-        state = .Ready
+      
+      if (responseDictionary != nil){
+        
+        transition(fromState: .Initial, toState: .Ready)
+
       }
-      self.didChangeValueForKey("isReady")
     }
   }
   
@@ -52,54 +54,32 @@ class SaveOperation: NSOperation {
   }
   
   
-  
-  
-  override var ready: Bool{
-    return state == OperationState.Ready
-  }
-  
-  
-  override var executing: Bool{
-    return state == OperationState.Executing
-  }
-  
-  override var finished: Bool{
-    return state == OperationState.Finished
-  }
-  
   override func start(){
     
-    self.willChangeValueForKey("isReady")
-    self.willChangeValueForKey("isExecuting")
+    transition(fromState: .Ready, toState: .Executing)
     
-    state = .Executing
-    
-    self.didChangeValueForKey("isReady")
-    self.didChangeValueForKey("isExecuting")
-    
-    savingManagedObjectContext = NSManagedObjectContext()
+    savingManagedObjectContext = NSManagedObjectContext(concurrencyType: .PrivateQueueConcurrencyType)
     NSNotificationCenter.defaultCenter().addObserver(self, selector: "managedObjectContextSaved:", name: NSManagedObjectContextDidSaveNotification, object: savingManagedObjectContext)
 
     savingManagedObjectContext!.persistentStoreCoordinator = persistentStoreCoorinator
+
     
     if let aResponseDictionary = responseDictionary{
-      
-      for dict: Dictionary<String, String!> in aResponseDictionary{
+      progress.totalUnitCount = Int64(aResponseDictionary.count)
+      progress.completedUnitCount = 0
+      for dict: Dictionary<String, String> in aResponseDictionary{
         
         let count = Item.countForEntityNamed("Item", withPredicate: NSPredicate(format: "url = %@", dict["url"]!), inManagedObjectContext: savingManagedObjectContext)
         
-        if count > 0{
-          continue
-        }
-        else{
+        if count == 0{
           let item = Item.insertNewForEntityNamed("Item", inManagedObjectContext: savingManagedObjectContext) as Item
         
           item.setValuesForKeysWithDictionary(dict)
           item.year = year
 
         }
-        
-        
+        progress.completedUnitCount += 1
+ 
       }
       
       savingManagedObjectContext!.save(nil)
@@ -111,12 +91,7 @@ class SaveOperation: NSOperation {
   func managedObjectContextSaved(notification: NSNotification!){
     let mergeChanges: () -> () = {
       self.mainManagedObjectContext.mergeChangesFromContextDidSaveNotification(notification)
-      
-      self.willChangeValueForKey("isFinished")
-      self.willChangeValueForKey("isExecuting")
-      self.state = .Finished
-      self.didChangeValueForKey("isExecuting")
-      self.didChangeValueForKey("isFinished")
+      self.transition(fromState: .Executing, toState: .Finished)
     }
     
     if NSThread.isMainThread(){

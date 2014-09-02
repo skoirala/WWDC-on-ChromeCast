@@ -15,9 +15,13 @@ class ItemTableViewCell: UITableViewCell {
   @IBOutlet var yearLabel: UILabel?
 
 
-    init(style: UITableViewCellStyle, reuseIdentifier: String) {
+    override init(style: UITableViewCellStyle, reuseIdentifier: String) {
         super.init(style: style, reuseIdentifier: reuseIdentifier)
         // Initialization code
+    }
+
+    required init(coder aDecoder: NSCoder) {
+      super.init(coder: aDecoder)
     }
 
     override func awakeFromNib() {
@@ -51,8 +55,8 @@ class ItemTableViewCell: UITableViewCell {
     
     if let name = item.title {
       
-      if name.bridgeToObjectiveC().length > 25{
-        nameLabel!.text = "\(name.bridgeToObjectiveC().substringToIndex(25))..."
+      if name.lengthOfBytesUsingEncoding(NSUTF8StringEncoding) > 25{
+        nameLabel!.text = "\(name.substringToIndex(advance(name.startIndex, 25)))"
       }else{
         nameLabel!.text = name
       }
@@ -60,8 +64,8 @@ class ItemTableViewCell: UITableViewCell {
     
     }else{
       
-      if item.url!.bridgeToObjectiveC().length > 25{
-        nameLabel!.text = "\(item.url!.bridgeToObjectiveC().substringToIndex(25))..."
+      if item.url!.lengthOfBytesUsingEncoding(NSASCIIStringEncoding) > 25{
+        nameLabel!.text = "\(item.url?.substringToIndex(advance(item.url!.startIndex, 25)))..."
       }else{
         nameLabel!.text = item.url!
       }

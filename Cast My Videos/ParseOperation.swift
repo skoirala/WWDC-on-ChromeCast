@@ -8,67 +8,41 @@
 
 import UIKit
 
-enum OperationState{
-  case  Initial ,Ready, Executing, Finished
-}
 
 
-class ParseOperation: NSOperation {
+class ParseOperation: BaseOperation {
   
   var year: String!
   
+  
+
   
   init(_ year: String!){
      self.year = year
   }
   
-  var state = OperationState.Initial
   
-  var responseArray:  Array<[String: String!]>?
+  var responseArray:  Array<[String: String]>?
 
   
   
-  var response: String?{
+  var response: NSString?{
   didSet{
-    if response{
-      self.willChangeValueForKey("isReady")
-      state = .Ready
-      self.didChangeValueForKey("isReady")
+    if (response != nil){
+        transition(fromState: .Initial, toState: .Ready)
+      }
+    }
+  }
+  
 
-    }
-    }
-  }
-  
-  
-  override var ready: Bool{
-  return state == .Ready
-  }
-  
-  
-  override var executing: Bool{
-  return state == .Executing
-  }
-  
-  override var finished: Bool{
-  return state == .Finished
-  }
-  
 
   let regexFor2010Onwards = "<li .*>(.*)<\\/li>\\s*.*\\s*.*<p>(.*)<\\/p>[\\w\\s]+<p.*\\s+<a href=\"(.*.mov)\">HD<\\/a>"
   
   let regexFor2013Onwards = "(?:<li class=\"thumbnail-title\">(.*))?<\\/li>.*<\\/li><li.*\\s+.*\\s+<p>(.*)<\\/p>\\s*<p .*\\s+<a href=\"(.*.mov\\?dl=1)\">HD<\\/a>"
   
   override func start(){
-
-    self.willChangeValueForKey("isReady")
-    self.willChangeValueForKey("isExecuting")
     
-    state = .Executing
-    
-    self.didChangeValueForKey("isReady")
-    self.didChangeValueForKey("isExecuting")
-    
-    
+    transition(fromState: .Ready, toState: .Executing)
     
     var errorPointer: NSError?
   
@@ -84,37 +58,49 @@ class ParseOperation: NSOperation {
     
     }
     let regex = NSRegularExpression.regularExpressionWithPattern(regexString , options: NSRegularExpressionOptions.fromRaw(0)!, error: &errorPointer)
-    let matches =  regex.matchesInString(response, options: NSMatchingOptions.ReportCompletion, range: NSMakeRange(0, response!.bridgeToObjectiveC().length))
     
-    responseArray = Array<[String: String!]>()
-    var results = Array<[String: String!]>()
-    for i in matches{
+    
+    
+    let matches = regex?.matchesInString(response!, options: NSMatchingOptions.ReportCompletion, range:NSMakeRange(0, response!.length))
+
+    responseArray = Array<[String: String]>()
+    var results = Array<[String: String]>()
+    
+    if let allMatches = matches{
+      progress.totalUnitCount = Int64(allMatches.count)
+      progress.completedUnitCount = Int64(0)
       
-      if let textCheckingResult = i as? NSTextCheckingResult{
+      for i in allMatches{
         
-        let titleRange = textCheckingResult.rangeAtIndex(1)
-        let titleString = self.response!.bridgeToObjectiveC().substringWithRange(titleRange)
+        if let textCheckingResult = i as? NSTextCheckingResult{
+          
+          
+          let titleString = self.response!.substringWithRange(textCheckingResult.rangeAtIndex(1))
+          
+          let contentRange = textCheckingResult.rangeAtIndex(2)
+          let contentString = self.response!.substringWithRange(contentRange)
+          
+          
+          
+          let linkRange = textCheckingResult.rangeAtIndex(3)
+          let linkString = self.response!.substringWithRange(linkRange)
+          
+          
+          var dict = ["title": titleString, "content": contentString, "url": linkString]
+          println(dict)
+          results.append(dict)
+        }
         
-        let contentRange = textCheckingResult.rangeAtIndex(2)
-        let contentString = self.response!.bridgeToObjectiveC().substringWithRange(contentRange)
+        progress.completedUnitCount += 1
+
         
-        
-        
-        let linkRange = textCheckingResult.rangeAtIndex(3)
-        let linkString = self.response!.bridgeToObjectiveC().substringWithRange(linkRange)
-        
-        
-        var dict = ["title": titleString, "content": contentString, "url": linkString]
-        results += dict
       }
+        
     }
+    
     responseArray = results
     
-    self.willChangeValueForKey("isFinished")
-    self.willChangeValueForKey("isExecuting")
-    self.state = .Finished
-    self.didChangeValueForKey("isExecuting")
-    self.didChangeValueForKey("isFinished")
+   transition(fromState: .Executing, toState: .Finished)
     
   }
   
