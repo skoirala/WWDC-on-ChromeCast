@@ -144,11 +144,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "Cast My Videos/PlayerView.swift"
-            timestampString = "431425636.616548"
+            timestampString = "431429853.593129"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "152"
-            endingLineNumber = "152"
+            startingLineNumber = "163"
+            endingLineNumber = "163"
             landmarkName = "deinit"
             landmarkType = "5">
          </BreakpointContent>
@@ -160,27 +160,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "Cast My Videos/PlayingViewController.swift"
-            timestampString = "431425636.616548"
+            timestampString = "431429330.004636"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "264"
-            endingLineNumber = "264"
-            landmarkName = "playerView(_:didBecomeReadyToPlay:)"
-            landmarkType = "5">
-         </BreakpointContent>
-      </BreakpointProxy>
-      <BreakpointProxy
-         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
-         <BreakpointContent
-            shouldBeEnabled = "No"
-            ignoreCount = "0"
-            continueAfterRunningActions = "No"
-            filePath = "Cast My Videos/PlayingViewController.swift"
-            timestampString = "431425636.616548"
-            startingColumnNumber = "9223372036854775807"
-            endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "234"
-            endingLineNumber = "234"
+            startingLineNumber = "255"
+            endingLineNumber = "255"
             landmarkName = "updateTimerLabel()"
             landmarkType = "5">
             <Locations>
@@ -211,6 +195,114 @@
                   startingLineNumber = "214"
                   endingLineNumber = "214"
                   offsetFromSymbolStart = "2630">
+               </Location>
+            </Locations>
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "Cast My Videos/PlayingViewController.swift"
+            timestampString = "431429330.004636"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "302"
+            endingLineNumber = "302"
+            landmarkName = "playerViewTimeObserverForPlayer(_:)"
+            landmarkType = "5">
+            <Locations>
+               <Location
+                  shouldBeEnabled = "No"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "Cast_My_Videos.PlayingViewController.(playerViewTimeObserverForPlayer (Cast_My_Videos.PlayingViewController) -&gt; (Swift.ImplicitlyUnwrappedOptional&lt;Cast_My_Videos.PlayerView&gt;) -&gt; (C.CMTime) -&gt; ()).(closure #1)"
+                  moduleName = "Cast My Videos"
+                  urlString = "file:///Users/Sandeep/Desktop/Cast%20My%20Videos/Cast%20My%20Videos/PlayingViewController.swift"
+                  timestampString = "431426705.587515"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "282"
+                  endingLineNumber = "282"
+                  offsetFromSymbolStart = "72">
+               </Location>
+               <Location
+                  shouldBeEnabled = "No"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "Cast_My_Videos.PlayingViewController.(playerViewTimeObserverForPlayer (Cast_My_Videos.PlayingViewController) -&gt; (Swift.ImplicitlyUnwrappedOptional&lt;Cast_My_Videos.PlayerView&gt;) -&gt; (C.CMTime) -&gt; ()).(closure #1)"
+                  moduleName = "Cast My Videos"
+                  urlString = "file:///Users/Sandeep/Desktop/Cast%20My%20Videos/Cast%20My%20Videos/PlayingViewController.swift"
+                  timestampString = "431426705.587666"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "282"
+                  endingLineNumber = "282"
+                  offsetFromSymbolStart = "832">
+               </Location>
+            </Locations>
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "Cast My Videos/PlayingViewController.swift"
+            timestampString = "431426741.523068"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "88"
+            endingLineNumber = "88"
+            landmarkName = "updateSlider(_:)"
+            landmarkType = "5">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "Cast My Videos/PlayerView.swift"
+            timestampString = "431429802.367902"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "82"
+            endingLineNumber = "82"
+            landmarkName = "observeValueForKeyPath(_:ofObject:change:context:)"
+            landmarkType = "5">
+            <Locations>
+               <Location
+                  shouldBeEnabled = "No"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "Cast_My_Videos.PlayerView.observeValueForKeyPath (Cast_My_Videos.PlayerView)(Swift.ImplicitlyUnwrappedOptional&lt;Swift.String&gt;, ofObject : Swift.ImplicitlyUnwrappedOptional&lt;Swift.AnyObject&gt;, change : Swift.ImplicitlyUnwrappedOptional&lt;Swift.Dictionary&lt;ObjectiveC.NSObject, Swift.AnyObject&gt;&gt;, context : Swift.UnsafeMutablePointer&lt;()&gt;) -&gt; ()"
+                  moduleName = "Cast My Videos"
+                  urlString = "file:///Users/Sandeep/Desktop/Cast%20My%20Videos/Cast%20My%20Videos/PlayerView.swift"
+                  timestampString = "431429853.615823"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "83"
+                  endingLineNumber = "83"
+                  offsetFromSymbolStart = "96">
+               </Location>
+               <Location
+                  shouldBeEnabled = "No"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "Cast_My_Videos.PlayerView.observeValueForKeyPath (Cast_My_Videos.PlayerView)(Swift.ImplicitlyUnwrappedOptional&lt;Swift.String&gt;, ofObject : Swift.ImplicitlyUnwrappedOptional&lt;Swift.AnyObject&gt;, change : Swift.ImplicitlyUnwrappedOptional&lt;Swift.Dictionary&lt;ObjectiveC.NSObject, Swift.AnyObject&gt;&gt;, context : Swift.UnsafeMutablePointer&lt;()&gt;) -&gt; ()"
+                  moduleName = "Cast My Videos"
+                  urlString = "file:///Users/Sandeep/Desktop/Cast%20My%20Videos/Cast%20My%20Videos/PlayerView.swift"
+                  timestampString = "431429853.616014"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "83"
+                  endingLineNumber = "83"
+                  offsetFromSymbolStart = "584">
                </Location>
             </Locations>
          </BreakpointContent>

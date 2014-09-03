@@ -21,6 +21,14 @@ protocol PlayerViewDelegate: NSObjectProtocol{
 
 class PlayerView: UIView {
   
+  
+  var allowAirplay: Bool! = false{
+    didSet{
+      self.player.allowsExternalPlayback = allowAirplay
+      self.player.usesExternalPlaybackWhileExternalScreenIsActive = allowAirplay
+    }
+  }
+  
   var observing = false
   
   var timeObserver: TimeObserver!
@@ -107,6 +115,13 @@ class PlayerView: UIView {
       switch(status){
         
         case .Loaded:
+          let playerItem = AVPlayerItem(asset: asset)
+          playerItem.addObserver(thePlayer, forKeyPath: "duration", options: .New, context: thePlayer.AVPlayerItemObservingContext)
+          thePlayer.currentItem = playerItem
+          
+          thePlayer.player.replaceCurrentItemWithPlayerItem(playerItem)
+          thePlayer.observing = true
+          
           dispatch_async(dispatch_get_main_queue(), {[weak self] () -> Void in
             if let playerView = self{
               if let theDelegate = playerView.delegate{
@@ -115,11 +130,7 @@ class PlayerView: UIView {
             }
           });
           
-          let playerItem = AVPlayerItem(asset: asset)
-          thePlayer.player.replaceCurrentItemWithPlayerItem(playerItem)
-          thePlayer.observing = true
-          playerItem.addObserver(thePlayer, forKeyPath: "duration", options: .New, context: thePlayer.AVPlayerItemObservingContext)
-          thePlayer.currentItem = playerItem
+        
 
       case .Failed:
         

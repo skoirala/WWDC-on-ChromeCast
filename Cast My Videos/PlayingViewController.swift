@@ -11,7 +11,7 @@ import AVFoundation
 import CoreMedia
 import QuartzCore
 
-class PlayingViewController: UIViewController, PlayerViewDelegate {
+class PlayingViewController: UIViewController, PlayerViewDelegate, UIPopoverPresentationControllerDelegate, DevicePopoverViewControllerDelegate {
   
   @IBOutlet weak var playPauseButton: UIButton!
   
@@ -44,6 +44,7 @@ class PlayingViewController: UIViewController, PlayerViewDelegate {
     button.setTitle(playerView.playing ? "Play" : "Pause", forState: .Normal)
     
     playerView.playPause()
+    
     
 //    if !(displayLink != nil){
 //      
@@ -175,6 +176,21 @@ class PlayingViewController: UIViewController, PlayerViewDelegate {
   var castController: CastController?
   
   
+  func selectDevice(barButtonItem: UIBarButtonItem){
+    
+    let devicePopoverViewController = DevicePopoverViewController()
+    devicePopoverViewController.modalPresentationStyle = .Popover
+    devicePopoverViewController.delegate = self
+    devicePopoverViewController.preferredContentSize = CGSizeMake(200, 200)
+    let popOverController = devicePopoverViewController.popoverPresentationController
+    
+    popOverController.permittedArrowDirections = .Any
+    popOverController.barButtonItem = barButtonItem
+    popOverController.delegate = self
+
+    presentViewController(devicePopoverViewController, animated: true, completion: nil)
+  }
+  
 
   override func viewDidLoad() {
     
@@ -183,7 +199,12 @@ class PlayingViewController: UIViewController, PlayerViewDelegate {
     playerView.delegate = self
     playerView.preparePlayWithUrlString(item!.url)
     
-
+//    playerView.allowAirplay = true
+    
+    
+    let deviceSelectionBarButtonItem = UIBarButtonItem(title: "Device", style: .Plain, target: self, action: "selectDevice:")
+    
+    navigationItem.rightBarButtonItem = deviceSelectionBarButtonItem
     
     
 //    println(item?.url)
@@ -285,5 +306,26 @@ class PlayingViewController: UIViewController, PlayerViewDelegate {
     }
 
   }
+  
+  func adaptivePresentationStyleForPresentationController(controller: UIPresentationController!) -> UIModalPresentationStyle{
+    return .None
+  }
+
+  //MARK: DevicePopoverViewControllerDelegate
+  
+  func devicePopoverViewControllerDidSelectDefaultDevice(viewController: DevicePopoverViewController) {
+    playerView.allowAirplay = false
+  }
+  
+  func devicePopoverViewControllerDidSelectAirPlay(viewController: DevicePopoverViewController!) {
+    playerView.allowAirplay = true
+    playPauseButton.enabled = true
+    scrubber.enabled = true
+  }
+  
+  func devicePopoverViewControllerDidSelectDevice(device: GCKDevice) {
+    
+  }
+  
   
 }
