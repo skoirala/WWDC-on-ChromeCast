@@ -56,6 +56,19 @@ class PlayerView: UIView {
     setup()
   }
   
+  func play(_ go: Bool = false){
+    if go{
+      player.play()
+    }else{
+      player.pause()
+    }
+  }
+  
+  
+  func seekToTime(time: CMTime, completionHandler completion: (Bool) -> Void){
+    player.seekToTime(time, completionHandler: completion)
+  }
+  
   
   override func observeValueForKeyPath(keyPath: String!, ofObject object: AnyObject!, change: [NSObject : AnyObject]!, context: UnsafeMutablePointer<Void>) {
     
@@ -76,7 +89,7 @@ class PlayerView: UIView {
     }
   }
   
-  func play(){
+  func playPause(){
     playing ? player.pause() : player.play()
   }
   

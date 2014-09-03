@@ -21,6 +21,9 @@ class PlayingViewController: UIViewController, PlayerViewDelegate {
   
   @IBOutlet weak var scrubber: UISlider!
   
+  
+  var previousPlayingState = false
+  
   var displayLink: CADisplayLink?
   
   var item: Item?
@@ -40,7 +43,7 @@ class PlayingViewController: UIViewController, PlayerViewDelegate {
     
     button.setTitle(playerView.playing ? "Play" : "Pause", forState: .Normal)
     
-    playerView.play()
+    playerView.playPause()
     
 //    if !(displayLink != nil){
 //      
@@ -82,31 +85,41 @@ class PlayingViewController: UIViewController, PlayerViewDelegate {
   
   func updateSlider(slider: AnyObject!){
     
-    let a = castController!.mediaControlChannel?.requestStatus()
-    
-    if a != kGCKInvalidRequestID{
+    updateTimerLabel()
+    if duration != nil{
+      let durationInSeconds = CMTimeGetSeconds(duration!)
       
-      let streamPosition = castController!.mediaControlChannel?.mediaStatus?.streamPosition
+      let value: Float = Float(CMTimeGetSeconds(currentTime)) / Float(durationInSeconds)
       
-      if (streamPosition != nil){
-        
-        currentTime = CMTimeMakeWithSeconds(streamPosition!, 10)
-        
-        updateTimerLabel()
-        
-        if (duration != nil){
-        
-          let durationInSeconds = CMTimeGetSeconds(duration!)
-        
-          let value: Float = Float(streamPosition!) / Float(durationInSeconds)
-        
-          scrubber!.value = value
-          
-        }
-      }
-      
-      
+      scrubber!.value = value
+
     }
+    
+//    let a = castController!.mediaControlChannel?.requestStatus()
+//    
+//    if a != kGCKInvalidRequestID{
+//      
+//      let streamPosition = castController!.mediaControlChannel?.mediaStatus?.streamPosition
+//      
+//      if (streamPosition != nil){
+//        
+//        currentTime = CMTimeMakeWithSeconds(streamPosition!, 10)
+//        
+//        updateTimerLabel()
+//        
+//        if (duration != nil){
+//        
+//          let durationInSeconds = CMTimeGetSeconds(duration!)
+//        
+//          let value: Float = Float(streamPosition!) / Float(durationInSeconds)
+//        
+//          scrubber!.value = value
+//          
+//        }
+//      }
+//      
+//      
+//    }
   }
   
   @IBAction func scrubberDragged(scrubber: UISlider){
@@ -122,21 +135,38 @@ class PlayingViewController: UIViewController, PlayerViewDelegate {
   
   func scrubberTouchDown(scrubber: UISlider!){
     
-    castController!.pause()
+    previousPlayingState = playerView.playing
     
-    displayLink!.paused = true
+    if previousPlayingState{
+      playerView.playPause()
+    }
+    
+//    castController!.pause()
+//    
+//    displayLink!.paused = true
   
   }
   
   func scrubberTouchUpInside(scrubber: UISlider!){
     
-    castController!.playVideo(refinedUrl!, fromTime:Double(CMTimeGetSeconds(currentTime)))
     
-    dispatch_after(dispatch_time(DISPATCH_TIME_NOW, Int64(2 * NSEC_PER_SEC)), dispatch_get_main_queue()){
-      
-      self.displayLink!.paused = false
-      
-    }
+//    castController!.playVideo(refinedUrl!, fromTime:Double(CMTimeGetSeconds(currentTime)))
+//    
+//    dispatch_after(dispatch_time(DISPATCH_TIME_NOW, Int64(2 * NSEC_PER_SEC)), dispatch_get_main_queue()){
+//      
+//      self.displayLink!.paused = false
+//      
+//    }
+    
+    playerView.seekToTime(currentTime, completionHandler: { [weak self](done: Bool) -> Void in
+      if let playingViewController = self{
+        if playingViewController.previousPlayingState{
+          playingViewController.playerView.play(true)
+        }else{
+          playingViewController.playerView.play()
+        }
+      }
+    });
     
   }
   
@@ -164,7 +194,7 @@ class PlayingViewController: UIViewController, PlayerViewDelegate {
     
     
     refinedUrl = item?.url!
-    
+    playPauseButton.enabled = false
     scrubber!.enabled = false
 //    let url = NSURL(string: refinedUrl!)
 //    
@@ -250,7 +280,7 @@ class PlayingViewController: UIViewController, PlayerViewDelegate {
       [weak self] (time:CMTime) in
       if let playingViewController = self{
         playingViewController.currentTime = time
-        playingViewController.updateTimerLabel()
+        playingViewController.updateSlider(playingViewController.scrubber)
       }
     }
 

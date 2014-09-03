@@ -144,11 +144,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "Cast My Videos/PlayerView.swift"
-            timestampString = "431424652.023429"
+            timestampString = "431425636.616548"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "139"
-            endingLineNumber = "139"
+            startingLineNumber = "152"
+            endingLineNumber = "152"
             landmarkName = "deinit"
             landmarkType = "5">
          </BreakpointContent>
@@ -160,13 +160,59 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "Cast My Videos/PlayingViewController.swift"
-            timestampString = "431421176.933567"
+            timestampString = "431425636.616548"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "264"
+            endingLineNumber = "264"
+            landmarkName = "playerView(_:didBecomeReadyToPlay:)"
+            landmarkType = "5">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "Cast My Videos/PlayingViewController.swift"
+            timestampString = "431425636.616548"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "234"
             endingLineNumber = "234"
-            landmarkName = "playerView(_:didBecomeReadyToPlay:)"
+            landmarkName = "updateTimerLabel()"
             landmarkType = "5">
+            <Locations>
+               <Location
+                  shouldBeEnabled = "No"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "Cast_My_Videos.PlayingViewController.updateTimerLabel (Cast_My_Videos.PlayingViewController)() -&gt; ()"
+                  moduleName = "Cast My Videos"
+                  urlString = "file:///Users/Sandeep/Desktop/Cast%20My%20Videos/Cast%20My%20Videos/PlayingViewController.swift"
+                  timestampString = "431425027.600806"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "214"
+                  endingLineNumber = "214"
+                  offsetFromSymbolStart = "32">
+               </Location>
+               <Location
+                  shouldBeEnabled = "No"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "Cast_My_Videos.PlayingViewController.updateTimerLabel (Cast_My_Videos.PlayingViewController)() -&gt; ()"
+                  moduleName = "Cast My Videos"
+                  urlString = "file:///Users/Sandeep/Desktop/Cast%20My%20Videos/Cast%20My%20Videos/PlayingViewController.swift"
+                  timestampString = "431425027.600993"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "214"
+                  endingLineNumber = "214"
+                  offsetFromSymbolStart = "2630">
+               </Location>
+            </Locations>
          </BreakpointContent>
       </BreakpointProxy>
    </Breakpoints>
