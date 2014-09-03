@@ -37,6 +37,8 @@ class OperationManager: NSObject {
     let parseOperation = ParseOperation(year)
     parseOperation.addDependency(networkOperation)
     
+    
+    
     networkOperation.completionBlock = {
       parseOperation.response = networkOperation.responseString
     }

@@ -11,18 +11,17 @@ import AVFoundation
 import CoreMedia
 import QuartzCore
 
-class PlayingViewController: UIViewController {
+class PlayingViewController: UIViewController, PlayerViewDelegate {
   
-  @IBOutlet var playPauseButton: UIButton!
+  @IBOutlet weak var playPauseButton: UIButton!
   
-  @IBOutlet var timerLabel: UILabel!
+  @IBOutlet weak var timerLabel: UILabel!
   
-  @IBOutlet var playerView: PlayerView!
+  @IBOutlet weak var playerView: PlayerView!
   
-  @IBOutlet var scrubber: UISlider!
+  @IBOutlet weak var scrubber: UISlider!
   
   var displayLink: CADisplayLink?
-  
   
   var item: Item?
   
@@ -34,45 +33,51 @@ class PlayingViewController: UIViewController {
   var currentTime: CMTime = CMTimeMakeWithSeconds(1, 5)
   
   var playing: Bool = false
+
+  
   
   @IBAction func playButtonTapped(button: UIButton!){
     
-    if !(displayLink != nil){
-      
-      displayLink = CADisplayLink(target: self, selector: "updateSlider:")
-      displayLink!.frameInterval = 60
-      displayLink?.addToRunLoop(NSRunLoop.currentRunLoop(), forMode: NSRunLoopCommonModes)
-      
-    }
+    button.setTitle(playerView.playing ? "Play" : "Pause", forState: .Normal)
     
-    if !playing{
-      
-      displayLink!.paused = false
-      playing = true
-      
-      if CMTimeCompare(CMTimeMakeWithSeconds(0, 5), currentTime) == 0{
-        
-        castController!.playVideo(refinedUrl!)
-        
-      }else{
-        
-        castController!.playVideo(refinedUrl!, fromTime:Double(CMTimeGetSeconds(currentTime)))
-        
-      }
-      
-      button.setTitle("Pause", forState: .Normal)
-      
-    }else{
-      
-      displayLink!.paused = true
-      
-      playing  = false
-      
-      castController!.pause()
-      
-      button.setTitle("Play", forState: .Normal)
-      
-    }
+    playerView.play()
+    
+//    if !(displayLink != nil){
+//      
+//      displayLink = CADisplayLink(target: self, selector: "updateSlider:")
+//      displayLink!.frameInterval = 60
+//      displayLink?.addToRunLoop(NSRunLoop.currentRunLoop(), forMode: NSRunLoopCommonModes)
+//      
+//    }
+//    
+//    if !playing{
+//      
+//      displayLink!.paused = false
+//      playing = true
+//      
+//      if CMTimeCompare(CMTimeMakeWithSeconds(0, 5), currentTime) == 0{
+//        
+//        castController!.playVideo(refinedUrl!)
+//        
+//      }else{
+//        
+//        castController!.playVideo(refinedUrl!, fromTime:Double(CMTimeGetSeconds(currentTime)))
+//        
+//      }
+//      
+//      button.setTitle("Pause", forState: .Normal)
+//      
+//    }else{
+//      
+//      displayLink!.paused = true
+//      
+//      playing  = false
+//      
+//      castController!.pause()
+//      
+//      button.setTitle("Play", forState: .Normal)
+//      
+//    }
   }
   
   func updateSlider(slider: AnyObject!){
@@ -140,55 +145,58 @@ class PlayingViewController: UIViewController {
   var castController: CastController?
   
   
-  
+
   override func viewDidLoad() {
     
     super.viewDidLoad()
   
-    playerView.playWithUrlString(item!.url)
+    playerView.delegate = self
+    playerView.preparePlayWithUrlString(item!.url)
+    
+
     
     
-    println(item?.url)
+//    println(item?.url)
     
-    scrubber?.addTarget(self, action: "scrubberTouchDown:", forControlEvents: .TouchDown)
+    scrubber!.addTarget(self, action: "scrubberTouchDown:", forControlEvents: .TouchDown)
     
-    scrubber?.addTarget(self, action: "scrubberTouchUpInside:", forControlEvents: .TouchUpInside)
+    scrubber!.addTarget(self, action: "scrubberTouchUpInside:", forControlEvents: .TouchUpInside)
     
     
     refinedUrl = item?.url!
     
     scrubber!.enabled = false
-    let url = NSURL(string: refinedUrl!)
-    
-    let avAsset = AVURLAsset(URL: url, options: nil)
-    
-    
-    avAsset.loadValuesAsynchronouslyForKeys(["tracks"], completionHandler: {
-      
-      switch avAsset.statusOfValueForKey("tracks", error: nil){
-        
-      case .Loaded:
-        
-        self.duration = avAsset.duration
-        
-        dispatch_async(dispatch_get_main_queue(), {
-          
-          self.updateTimerLabel()
-          
-          let totalTime = self.timeFromDuration(self.duration!)
-          self.item!.duration = totalTime as String
-          CoreDataManager.manager().managedObjectContext.save(nil)
-          self.scrubber!.enabled = true
-
-          })
-        
-        
-      default:
-        
-        break
-      }
-      })
-    
+//    let url = NSURL(string: refinedUrl!)
+//    
+//    let avAsset = AVURLAsset(URL: url, options: nil)
+//    
+//    
+//    avAsset.loadValuesAsynchronouslyForKeys(["tracks"], completionHandler: {
+//      
+//      switch avAsset.statusOfValueForKey("tracks", error: nil){
+//        
+//      case .Loaded:
+//        
+//        self.duration = avAsset.duration
+//        
+//        dispatch_async(dispatch_get_main_queue(), {
+//          
+//          self.updateTimerLabel()
+//          
+//          let totalTime = self.timeFromDuration(self.duration!)
+//          self.item!.duration = totalTime as String
+//          CoreDataManager.manager().managedObjectContext.save(nil)
+//          self.scrubber!.enabled = true
+//
+//          })
+//        
+//        
+//      default:
+//        
+//        break
+//      }
+//      })
+//    
   }
   
   func updateTimerLabel(){
@@ -219,5 +227,33 @@ class PlayingViewController: UIViewController {
     
   }
   
+  //MARK: PlayerViewDelegate
+  
+  func playerView(playerView: PlayerView!, didBecomeReadyToPlay ready: Bool) {
+    playPauseButton.enabled = true
+    self.scrubber!.enabled = true
+
+  }
+  
+  
+  func playerView(playerView: PlayerView!, didUpdateDuration duration: CMTime?) {
+    self.duration = duration
+    
+    self.updateTimerLabel()
+    let totalTime = self.timeFromDuration(self.duration!)
+    self.item!.duration = totalTime as String
+    CoreDataManager.manager().managedObjectContext.save(nil)
+  }
+  
+  func playerViewTimeObserverForPlayer(playerView: PlayerView!) -> TimeObserver {
+    return {
+      [weak self] (time:CMTime) in
+      if let playingViewController = self{
+        playingViewController.currentTime = time
+        playingViewController.updateTimerLabel()
+      }
+    }
+
+  }
   
 }
