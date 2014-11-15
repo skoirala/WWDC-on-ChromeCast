@@ -19,7 +19,6 @@
 		2C8835E31979CB5600FF1A9E /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 2C8835E11979CB5600FF1A9E /* Main.storyboard */; };
 		2C8835E51979CB5600FF1A9E /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 2C8835E41979CB5600FF1A9E /* Images.xcassets */; };
 		2C8835F11979CB5600FF1A9E /* Cast_My_VideosTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2C8835F01979CB5600FF1A9E /* Cast_My_VideosTests.swift */; };
-		2C8835FB1979CB7400FF1A9E /* GoogleCast.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2C8835FA1979CB7400FF1A9E /* GoogleCast.framework */; };
 		2C8835FE1979CB9500FF1A9E /* MediaAccessibility.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2C8835FD1979CB9500FF1A9E /* MediaAccessibility.framework */; };
 		2C8836001979CB9900FF1A9E /* CoreText.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2C8835FF1979CB9900FF1A9E /* CoreText.framework */; };
 		2C8836061979CBDE00FF1A9E /* CastController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2C8836051979CBDE00FF1A9E /* CastController.swift */; };
@@ -27,6 +26,7 @@
 		2C88360A1979E23100FF1A9E /* ParseOperation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2C8836091979E23100FF1A9E /* ParseOperation.swift */; };
 		2C88360C1979F93900FF1A9E /* DevicePopoverViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2C88360B1979F93900FF1A9E /* DevicePopoverViewController.swift */; };
 		2C88360E197A017400FF1A9E /* PlayingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2C88360D197A017400FF1A9E /* PlayingViewController.swift */; };
+		2C90C7D519FA38E5009DCF25 /* GoogleCast.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2C90C7D419FA38E5009DCF25 /* GoogleCast.framework */; };
 		2CD7F394198D378300346279 /* BaseOperation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2CD7F393198D378300346279 /* BaseOperation.swift */; };
 		2CE4AA8A197D44F8002EE2B8 /* DataModel.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 2CE4AA88197D44F8002EE2B8 /* DataModel.xcdatamodeld */; };
 		2CE4AA91197D57C6002EE2B8 /* CoreDataManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2CE4AA90197D57C6002EE2B8 /* CoreDataManager.swift */; };
@@ -61,7 +61,6 @@
 		2C8835EA1979CB5600FF1A9E /* Cast My VideosTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "Cast My VideosTests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
 		2C8835EF1979CB5600FF1A9E /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		2C8835F01979CB5600FF1A9E /* Cast_My_VideosTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Cast_My_VideosTests.swift; sourceTree = "<group>"; };
-		2C8835FA1979CB7400FF1A9E /* GoogleCast.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = GoogleCast.framework; path = "../../Downloads/GoogleCastFramework-2.3.0-Release/GoogleCast.framework"; sourceTree = "<group>"; };
 		2C8835FD1979CB9500FF1A9E /* MediaAccessibility.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MediaAccessibility.framework; path = System/Library/Frameworks/MediaAccessibility.framework; sourceTree = SDKROOT; };
 		2C8835FF1979CB9900FF1A9E /* CoreText.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreText.framework; path = System/Library/Frameworks/CoreText.framework; sourceTree = SDKROOT; };
 		2C8836011979CBA700FF1A9E /* Cast My Videos-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "Cast My Videos-Bridging-Header.h"; sourceTree = "<group>"; };
@@ -70,6 +69,7 @@
 		2C8836091979E23100FF1A9E /* ParseOperation.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ParseOperation.swift; sourceTree = "<group>"; };
 		2C88360B1979F93900FF1A9E /* DevicePopoverViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DevicePopoverViewController.swift; sourceTree = "<group>"; };
 		2C88360D197A017400FF1A9E /* PlayingViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PlayingViewController.swift; sourceTree = "<group>"; };
+		2C90C7D419FA38E5009DCF25 /* GoogleCast.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = GoogleCast.framework; sourceTree = "<group>"; };
 		2CD7F393198D378300346279 /* BaseOperation.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BaseOperation.swift; sourceTree = "<group>"; };
 		2CE4AA89197D44F8002EE2B8 /* DataModel.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = DataModel.xcdatamodel; sourceTree = "<group>"; };
 		2CE4AA90197D57C6002EE2B8 /* CoreDataManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CoreDataManager.swift; sourceTree = "<group>"; };
@@ -82,9 +82,9 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				2C90C7D519FA38E5009DCF25 /* GoogleCast.framework in Frameworks */,
 				2C8836001979CB9900FF1A9E /* CoreText.framework in Frameworks */,
 				2C8835FE1979CB9500FF1A9E /* MediaAccessibility.framework in Frameworks */,
-				2C8835FB1979CB7400FF1A9E /* GoogleCast.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -175,9 +175,9 @@
 		2C8835FC1979CB8600FF1A9E /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				2C90C7D419FA38E5009DCF25 /* GoogleCast.framework */,
 				2C8835FF1979CB9900FF1A9E /* CoreText.framework */,
 				2C8835FD1979CB9500FF1A9E /* MediaAccessibility.framework */,
-				2C8835FA1979CB7400FF1A9E /* GoogleCast.framework */,
 			);
 			name = Frameworks;
 			sourceTree = "<group>";
@@ -421,6 +421,7 @@
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
 					"/Users/Sandeep/Downloads/GoogleCastFramework-2.3.0-Release",
+					"$(PROJECT_DIR)",
 				);
 				INFOPLIST_FILE = "Cast My Videos/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
@@ -440,6 +441,7 @@
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
 					"/Users/Sandeep/Downloads/GoogleCastFramework-2.3.0-Release",
+					"$(PROJECT_DIR)",
 				);
 				INFOPLIST_FILE = "Cast My Videos/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";

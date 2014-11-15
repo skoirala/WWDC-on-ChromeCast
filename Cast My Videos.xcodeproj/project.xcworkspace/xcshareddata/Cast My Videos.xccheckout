@@ -10,31 +10,31 @@
 	<string>Cast My Videos</string>
 	<key>IDESourceControlProjectOriginsDictionary</key>
 	<dict>
-		<key>8A452A6D-64C1-443A-9479-D5CDF77C1317</key>
-		<string>ssh://github.com/skoirala/WWDC-on-ChromeCast.git</string>
+		<key>617274B6CC44CFDDFD6404A79881193EF83887FA</key>
+		<string>github.com:skoirala/WWDC-on-ChromeCast.git</string>
 	</dict>
 	<key>IDESourceControlProjectPath</key>
-	<string>Cast My Videos.xcodeproj/project.xcworkspace</string>
+	<string>Cast My Videos.xcodeproj</string>
 	<key>IDESourceControlProjectRelativeInstallPathDictionary</key>
 	<dict>
-		<key>8A452A6D-64C1-443A-9479-D5CDF77C1317</key>
+		<key>617274B6CC44CFDDFD6404A79881193EF83887FA</key>
 		<string>../..</string>
 	</dict>
 	<key>IDESourceControlProjectURL</key>
-	<string>ssh://github.com/skoirala/WWDC-on-ChromeCast.git</string>
+	<string>github.com:skoirala/WWDC-on-ChromeCast.git</string>
 	<key>IDESourceControlProjectVersion</key>
-	<integer>110</integer>
+	<integer>111</integer>
 	<key>IDESourceControlProjectWCCIdentifier</key>
-	<string>8A452A6D-64C1-443A-9479-D5CDF77C1317</string>
+	<string>617274B6CC44CFDDFD6404A79881193EF83887FA</string>
 	<key>IDESourceControlProjectWCConfigurations</key>
 	<array>
 		<dict>
 			<key>IDESourceControlRepositoryExtensionIdentifierKey</key>
 			<string>public.vcs.git</string>
 			<key>IDESourceControlWCCIdentifierKey</key>
-			<string>8A452A6D-64C1-443A-9479-D5CDF77C1317</string>
+			<string>617274B6CC44CFDDFD6404A79881193EF83887FA</string>
 			<key>IDESourceControlWCCName</key>
-			<string>Cast My Videos</string>
+			<string>WWDC-on-ChromeCast</string>
 		</dict>
 	</array>
 </dict>

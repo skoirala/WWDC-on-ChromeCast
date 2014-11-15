@@ -20,12 +20,13 @@ class NetworkOperation:NSOperation {
   
   override func main() {
     
-    let url = NSURL(string: urlString)
-    let urlRequest = NSURLRequest(URL: url)
-    
-    let data = NSData(contentsOfURL: url)
-    responseString = NSString(data: data, encoding: NSUTF8StringEncoding)
-    
+    if let url = NSURL(string: urlString) {
+        let urlRequest = NSURLRequest(URL: url)
+        
+        if let data = NSData(contentsOfURL: url){
+            responseString = NSString(data: data, encoding: NSUTF8StringEncoding)
+        }
+    }
   }
 
 
