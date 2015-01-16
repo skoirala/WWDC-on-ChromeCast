@@ -42,11 +42,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "Cast My Videos/ParseOperation.swift"
-            timestampString = "431337378.904136"
+            timestampString = "441794964.738549"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "68"
-            endingLineNumber = "68"
+            startingLineNumber = "69"
+            endingLineNumber = "69"
             landmarkName = "start()"
             landmarkType = "5">
             <Locations>
@@ -102,28 +102,12 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "Cast My Videos/ViewController.swift"
-            timestampString = "431359874.573382"
+            timestampString = "443053874.997707"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "151"
-            endingLineNumber = "151"
+            startingLineNumber = "135"
+            endingLineNumber = "135"
             landmarkName = "segmentedControlValueChanged(_:)"
-            landmarkType = "5">
-         </BreakpointContent>
-      </BreakpointProxy>
-      <BreakpointProxy
-         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
-         <BreakpointContent
-            shouldBeEnabled = "No"
-            ignoreCount = "0"
-            continueAfterRunningActions = "No"
-            filePath = "Cast My Videos/ViewController.swift"
-            timestampString = "431357088.406266"
-            startingColumnNumber = "9223372036854775807"
-            endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "88"
-            endingLineNumber = "88"
-            landmarkName = "externalScreenConnected(_:)"
             landmarkType = "5">
          </BreakpointContent>
       </BreakpointProxy>
@@ -160,11 +144,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "Cast My Videos/PlayingViewController.swift"
-            timestampString = "431429330.004636"
+            timestampString = "443054228.130255"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "255"
-            endingLineNumber = "255"
+            startingLineNumber = "254"
+            endingLineNumber = "254"
             landmarkName = "updateTimerLabel()"
             landmarkType = "5">
             <Locations>
@@ -206,11 +190,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "Cast My Videos/PlayingViewController.swift"
-            timestampString = "431429330.004636"
+            timestampString = "443054228.130255"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "302"
-            endingLineNumber = "302"
+            startingLineNumber = "301"
+            endingLineNumber = "301"
             landmarkName = "playerViewTimeObserverForPlayer(_:)"
             landmarkType = "5">
             <Locations>
@@ -252,11 +236,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "Cast My Videos/PlayingViewController.swift"
-            timestampString = "431426741.523068"
+            timestampString = "443052915.478586"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "88"
-            endingLineNumber = "88"
+            startingLineNumber = "89"
+            endingLineNumber = "89"
             landmarkName = "updateSlider(_:)"
             landmarkType = "5">
          </BreakpointContent>
@@ -303,6 +287,66 @@
                   startingLineNumber = "83"
                   endingLineNumber = "83"
                   offsetFromSymbolStart = "584">
+               </Location>
+            </Locations>
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "Cast My Videos/CastController.swift"
+            timestampString = "443051936.871907"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "106"
+            endingLineNumber = "106"
+            landmarkName = "deviceDidComeOnline(_:)"
+            landmarkType = "5">
+            <Locations>
+               <Location
+                  shouldBeEnabled = "No"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "Cast_My_Videos.CastController.deviceDidComeOnline (Cast_My_Videos.CastController)(Swift.ImplicitlyUnwrappedOptional&lt;ObjectiveC.GCKDevice&gt;) -&gt; ()"
+                  moduleName = "Cast My Videos"
+                  urlString = "file:///Users/Sandeep/WWDC-on-ChromeCast/Cast%20My%20Videos/CastController.swift"
+                  timestampString = "443051942.995379"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "106"
+                  endingLineNumber = "106"
+                  offsetFromSymbolStart = "56">
+               </Location>
+               <Location
+                  shouldBeEnabled = "No"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "Cast_My_Videos.CastController.(deviceDidComeOnline (Cast_My_Videos.CastController) -&gt; (Swift.ImplicitlyUnwrappedOptional&lt;ObjectiveC.GCKDevice&gt;) -&gt; ()).(closure #1)"
+                  moduleName = "Cast My Videos"
+                  urlString = "file:///Users/Sandeep/WWDC-on-ChromeCast/Cast%20My%20Videos/CastController.swift"
+                  timestampString = "443051942.995555"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "106"
+                  endingLineNumber = "106"
+                  offsetFromSymbolStart = "0">
+               </Location>
+               <Location
+                  shouldBeEnabled = "No"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "reabstraction thunk helper from @callee_owned (@owned Cast_My_Videos.ChromeCastDevice) -&gt; (@unowned Swift.Bool) to @callee_owned (@in Cast_My_Videos.ChromeCastDevice) -&gt; (@unowned Swift.Bool)"
+                  moduleName = "Cast My Videos"
+                  urlString = "file:///Users/Sandeep/WWDC-on-ChromeCast/Cast%20My%20Videos/CastController.swift"
+                  timestampString = "443051942.995653"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "106"
+                  endingLineNumber = "106"
+                  offsetFromSymbolStart = "0">
                </Location>
             </Locations>
          </BreakpointContent>

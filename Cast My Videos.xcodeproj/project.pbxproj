@@ -7,31 +7,38 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		2C0A837119B5BA9500D09DAB /* Favorite.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2C0A837019B5BA9500D09DAB /* Favorite.swift */; };
-		2C0A837319B5C06D00D09DAB /* film.png in Resources */ = {isa = PBXBuildFile; fileRef = 2C0A837219B5C06D00D09DAB /* film.png */; };
-		2C115653197DFD05004A317B /* OperationManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2C115652197DFD05004A317B /* OperationManager.swift */; };
-		2C543461197D9A1F000971B5 /* SaveOperation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2C543460197D9A1F000971B5 /* SaveOperation.swift */; };
-		2C543463197DDB17000971B5 /* SearchResultViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2C543462197DDB17000971B5 /* SearchResultViewController.swift */; };
-		2C543465197DE9FB000971B5 /* SearchItemTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2C543464197DE9FB000971B5 /* SearchItemTableViewCell.swift */; };
-		2C59406B19B6002C009D0DBA /* PlayerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2C59406A19B6002C009D0DBA /* PlayerView.swift */; };
-		2C8835DE1979CB5600FF1A9E /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2C8835DD1979CB5600FF1A9E /* AppDelegate.swift */; };
-		2C8835E01979CB5600FF1A9E /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2C8835DF1979CB5600FF1A9E /* ViewController.swift */; };
-		2C8835E31979CB5600FF1A9E /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 2C8835E11979CB5600FF1A9E /* Main.storyboard */; };
-		2C8835E51979CB5600FF1A9E /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 2C8835E41979CB5600FF1A9E /* Images.xcassets */; };
 		2C8835F11979CB5600FF1A9E /* Cast_My_VideosTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2C8835F01979CB5600FF1A9E /* Cast_My_VideosTests.swift */; };
 		2C8835FE1979CB9500FF1A9E /* MediaAccessibility.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2C8835FD1979CB9500FF1A9E /* MediaAccessibility.framework */; };
 		2C8836001979CB9900FF1A9E /* CoreText.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2C8835FF1979CB9900FF1A9E /* CoreText.framework */; };
-		2C8836061979CBDE00FF1A9E /* CastController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2C8836051979CBDE00FF1A9E /* CastController.swift */; };
-		2C8836081979CBFC00FF1A9E /* NetworkOperation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2C8836071979CBFC00FF1A9E /* NetworkOperation.swift */; };
-		2C88360A1979E23100FF1A9E /* ParseOperation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2C8836091979E23100FF1A9E /* ParseOperation.swift */; };
-		2C88360C1979F93900FF1A9E /* DevicePopoverViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2C88360B1979F93900FF1A9E /* DevicePopoverViewController.swift */; };
-		2C88360E197A017400FF1A9E /* PlayingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2C88360D197A017400FF1A9E /* PlayingViewController.swift */; };
-		2C90C7D519FA38E5009DCF25 /* GoogleCast.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2C90C7D419FA38E5009DCF25 /* GoogleCast.framework */; };
-		2CD7F394198D378300346279 /* BaseOperation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2CD7F393198D378300346279 /* BaseOperation.swift */; };
-		2CE4AA8A197D44F8002EE2B8 /* DataModel.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 2CE4AA88197D44F8002EE2B8 /* DataModel.xcdatamodeld */; };
-		2CE4AA91197D57C6002EE2B8 /* CoreDataManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2CE4AA90197D57C6002EE2B8 /* CoreDataManager.swift */; };
-		2CE4AA97197D625F002EE2B8 /* Item.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2CE4AA96197D625F002EE2B8 /* Item.swift */; };
-		2CE4AA99197D6F67002EE2B8 /* ItemTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2CE4AA98197D6F67002EE2B8 /* ItemTableViewCell.swift */; };
+		2C8C1C671A55412E00134587 /* GoogleCast.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2C8C1C661A55412E00134587 /* GoogleCast.framework */; };
+		2C8C1C691A55417F00134587 /* SystemConfiguration.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2C8C1C681A55417F00134587 /* SystemConfiguration.framework */; };
+		2C9DF2141A687F4D00BF3577 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2C9DF2131A687F4D00BF3577 /* AppDelegate.swift */; };
+		2C9DF21A1A687F6800BF3577 /* DataModel.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 2C9DF2181A687F6800BF3577 /* DataModel.xcdatamodeld */; };
+		2C9DF2201A687F7700BF3577 /* AirPlay.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2C9DF21B1A687F7700BF3577 /* AirPlay.swift */; };
+		2C9DF2211A687F7700BF3577 /* ChromeCastDevice.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2C9DF21C1A687F7700BF3577 /* ChromeCastDevice.swift */; };
+		2C9DF2221A687F7700BF3577 /* DefaultDevice.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2C9DF21D1A687F7700BF3577 /* DefaultDevice.swift */; };
+		2C9DF2231A687F7700BF3577 /* Device.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2C9DF21E1A687F7700BF3577 /* Device.swift */; };
+		2C9DF2241A687F7700BF3577 /* DeviceManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2C9DF21F1A687F7700BF3577 /* DeviceManager.swift */; };
+		2C9DF2271A687F8600BF3577 /* film.png in Resources */ = {isa = PBXBuildFile; fileRef = 2C9DF2251A687F8600BF3577 /* film.png */; };
+		2C9DF2281A687F8600BF3577 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 2C9DF2261A687F8600BF3577 /* Images.xcassets */; };
+		2C9DF22D1A687F9A00BF3577 /* CastController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2C9DF2291A687F9A00BF3577 /* CastController.swift */; };
+		2C9DF22E1A687F9A00BF3577 /* CoreDataManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2C9DF22A1A687F9A00BF3577 /* CoreDataManager.swift */; };
+		2C9DF22F1A687F9A00BF3577 /* Favorite.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2C9DF22B1A687F9A00BF3577 /* Favorite.swift */; };
+		2C9DF2301A687F9A00BF3577 /* Item.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2C9DF22C1A687F9A00BF3577 /* Item.swift */; };
+		2C9DF2361A687FAA00BF3577 /* BaseOperation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2C9DF2311A687FAA00BF3577 /* BaseOperation.swift */; };
+		2C9DF2371A687FAA00BF3577 /* NetworkOperation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2C9DF2321A687FAA00BF3577 /* NetworkOperation.swift */; };
+		2C9DF2381A687FAA00BF3577 /* OperationManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2C9DF2331A687FAA00BF3577 /* OperationManager.swift */; };
+		2C9DF2391A687FAA00BF3577 /* ParseOperation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2C9DF2341A687FAA00BF3577 /* ParseOperation.swift */; };
+		2C9DF23A1A687FAA00BF3577 /* SaveOperation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2C9DF2351A687FAA00BF3577 /* SaveOperation.swift */; };
+		2C9DF23E1A687FCD00BF3577 /* Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 2C9DF23D1A687FCD00BF3577 /* Info.plist */; };
+		2C9DF2411A687FDF00BF3577 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 2C9DF23F1A687FDF00BF3577 /* Main.storyboard */; };
+		2C9DF2461A687FF400BF3577 /* DevicePopoverViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2C9DF2421A687FF400BF3577 /* DevicePopoverViewController.swift */; };
+		2C9DF2471A687FF400BF3577 /* PlayingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2C9DF2431A687FF400BF3577 /* PlayingViewController.swift */; };
+		2C9DF2481A687FF400BF3577 /* SearchResultViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2C9DF2441A687FF400BF3577 /* SearchResultViewController.swift */; };
+		2C9DF2491A687FF400BF3577 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2C9DF2451A687FF400BF3577 /* ViewController.swift */; };
+		2C9DF24D1A68800400BF3577 /* ItemTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2C9DF24A1A68800400BF3577 /* ItemTableViewCell.swift */; };
+		2C9DF24E1A68800400BF3577 /* PlayerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2C9DF24B1A68800400BF3577 /* PlayerView.swift */; };
+		2C9DF24F1A68800400BF3577 /* SearchItemTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2C9DF24C1A68800400BF3577 /* SearchItemTableViewCell.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -45,36 +52,42 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
-		2C0A837019B5BA9500D09DAB /* Favorite.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Favorite.swift; sourceTree = "<group>"; };
-		2C0A837219B5C06D00D09DAB /* film.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = film.png; sourceTree = "<group>"; };
-		2C115652197DFD05004A317B /* OperationManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = OperationManager.swift; sourceTree = "<group>"; };
-		2C543460197D9A1F000971B5 /* SaveOperation.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SaveOperation.swift; sourceTree = "<group>"; };
-		2C543462197DDB17000971B5 /* SearchResultViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SearchResultViewController.swift; sourceTree = "<group>"; };
-		2C543464197DE9FB000971B5 /* SearchItemTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SearchItemTableViewCell.swift; sourceTree = "<group>"; };
-		2C59406A19B6002C009D0DBA /* PlayerView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PlayerView.swift; sourceTree = "<group>"; };
 		2C8835D81979CB5600FF1A9E /* Cast My Videos.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Cast My Videos.app"; sourceTree = BUILT_PRODUCTS_DIR; };
-		2C8835DC1979CB5600FF1A9E /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		2C8835DD1979CB5600FF1A9E /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
-		2C8835DF1979CB5600FF1A9E /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
-		2C8835E21979CB5600FF1A9E /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
-		2C8835E41979CB5600FF1A9E /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
 		2C8835EA1979CB5600FF1A9E /* Cast My VideosTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "Cast My VideosTests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
 		2C8835EF1979CB5600FF1A9E /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		2C8835F01979CB5600FF1A9E /* Cast_My_VideosTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Cast_My_VideosTests.swift; sourceTree = "<group>"; };
 		2C8835FD1979CB9500FF1A9E /* MediaAccessibility.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MediaAccessibility.framework; path = System/Library/Frameworks/MediaAccessibility.framework; sourceTree = SDKROOT; };
 		2C8835FF1979CB9900FF1A9E /* CoreText.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreText.framework; path = System/Library/Frameworks/CoreText.framework; sourceTree = SDKROOT; };
-		2C8836011979CBA700FF1A9E /* Cast My Videos-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "Cast My Videos-Bridging-Header.h"; sourceTree = "<group>"; };
-		2C8836051979CBDE00FF1A9E /* CastController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CastController.swift; sourceTree = "<group>"; };
-		2C8836071979CBFC00FF1A9E /* NetworkOperation.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NetworkOperation.swift; sourceTree = "<group>"; };
-		2C8836091979E23100FF1A9E /* ParseOperation.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ParseOperation.swift; sourceTree = "<group>"; };
-		2C88360B1979F93900FF1A9E /* DevicePopoverViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DevicePopoverViewController.swift; sourceTree = "<group>"; };
-		2C88360D197A017400FF1A9E /* PlayingViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PlayingViewController.swift; sourceTree = "<group>"; };
-		2C90C7D419FA38E5009DCF25 /* GoogleCast.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = GoogleCast.framework; sourceTree = "<group>"; };
-		2CD7F393198D378300346279 /* BaseOperation.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BaseOperation.swift; sourceTree = "<group>"; };
-		2CE4AA89197D44F8002EE2B8 /* DataModel.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = DataModel.xcdatamodel; sourceTree = "<group>"; };
-		2CE4AA90197D57C6002EE2B8 /* CoreDataManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CoreDataManager.swift; sourceTree = "<group>"; };
-		2CE4AA96197D625F002EE2B8 /* Item.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Item.swift; sourceTree = "<group>"; };
-		2CE4AA98197D6F67002EE2B8 /* ItemTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ItemTableViewCell.swift; sourceTree = "<group>"; };
+		2C8C1C661A55412E00134587 /* GoogleCast.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = GoogleCast.framework; sourceTree = "<group>"; };
+		2C8C1C681A55417F00134587 /* SystemConfiguration.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SystemConfiguration.framework; path = System/Library/Frameworks/SystemConfiguration.framework; sourceTree = SDKROOT; };
+		2C9DF2131A687F4D00BF3577 /* AppDelegate.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
+		2C9DF2191A687F6800BF3577 /* DataModel.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = DataModel.xcdatamodel; sourceTree = "<group>"; };
+		2C9DF21B1A687F7700BF3577 /* AirPlay.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AirPlay.swift; sourceTree = "<group>"; };
+		2C9DF21C1A687F7700BF3577 /* ChromeCastDevice.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ChromeCastDevice.swift; sourceTree = "<group>"; };
+		2C9DF21D1A687F7700BF3577 /* DefaultDevice.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DefaultDevice.swift; sourceTree = "<group>"; };
+		2C9DF21E1A687F7700BF3577 /* Device.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Device.swift; sourceTree = "<group>"; };
+		2C9DF21F1A687F7700BF3577 /* DeviceManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DeviceManager.swift; sourceTree = "<group>"; };
+		2C9DF2251A687F8600BF3577 /* film.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = film.png; sourceTree = "<group>"; };
+		2C9DF2261A687F8600BF3577 /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
+		2C9DF2291A687F9A00BF3577 /* CastController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CastController.swift; sourceTree = "<group>"; };
+		2C9DF22A1A687F9A00BF3577 /* CoreDataManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CoreDataManager.swift; sourceTree = "<group>"; };
+		2C9DF22B1A687F9A00BF3577 /* Favorite.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Favorite.swift; sourceTree = "<group>"; };
+		2C9DF22C1A687F9A00BF3577 /* Item.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Item.swift; sourceTree = "<group>"; };
+		2C9DF2311A687FAA00BF3577 /* BaseOperation.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BaseOperation.swift; sourceTree = "<group>"; };
+		2C9DF2321A687FAA00BF3577 /* NetworkOperation.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NetworkOperation.swift; sourceTree = "<group>"; };
+		2C9DF2331A687FAA00BF3577 /* OperationManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = OperationManager.swift; sourceTree = "<group>"; };
+		2C9DF2341A687FAA00BF3577 /* ParseOperation.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ParseOperation.swift; sourceTree = "<group>"; };
+		2C9DF2351A687FAA00BF3577 /* SaveOperation.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SaveOperation.swift; sourceTree = "<group>"; };
+		2C9DF23C1A687FCD00BF3577 /* Cast My Videos-Bridging-Header.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "Cast My Videos-Bridging-Header.h"; sourceTree = "<group>"; };
+		2C9DF23D1A687FCD00BF3577 /* Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		2C9DF2401A687FDF00BF3577 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
+		2C9DF2421A687FF400BF3577 /* DevicePopoverViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DevicePopoverViewController.swift; sourceTree = "<group>"; };
+		2C9DF2431A687FF400BF3577 /* PlayingViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PlayingViewController.swift; sourceTree = "<group>"; };
+		2C9DF2441A687FF400BF3577 /* SearchResultViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SearchResultViewController.swift; sourceTree = "<group>"; };
+		2C9DF2451A687FF400BF3577 /* ViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
+		2C9DF24A1A68800400BF3577 /* ItemTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ItemTableViewCell.swift; sourceTree = "<group>"; };
+		2C9DF24B1A68800400BF3577 /* PlayerView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PlayerView.swift; sourceTree = "<group>"; };
+		2C9DF24C1A68800400BF3577 /* SearchItemTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SearchItemTableViewCell.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -82,7 +95,8 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				2C90C7D519FA38E5009DCF25 /* GoogleCast.framework in Frameworks */,
+				2C8C1C691A55417F00134587 /* SystemConfiguration.framework in Frameworks */,
+				2C8C1C671A55412E00134587 /* GoogleCast.framework in Frameworks */,
 				2C8836001979CB9900FF1A9E /* CoreText.framework in Frameworks */,
 				2C8835FE1979CB9500FF1A9E /* MediaAccessibility.framework in Frameworks */,
 			);
@@ -120,39 +134,18 @@
 		2C8835DA1979CB5600FF1A9E /* Cast My Videos */ = {
 			isa = PBXGroup;
 			children = (
-				2C8836071979CBFC00FF1A9E /* NetworkOperation.swift */,
-				2C8836051979CBDE00FF1A9E /* CastController.swift */,
-				2C0A837219B5C06D00D09DAB /* film.png */,
-				2C8835DD1979CB5600FF1A9E /* AppDelegate.swift */,
-				2C8835DF1979CB5600FF1A9E /* ViewController.swift */,
-				2C8835E11979CB5600FF1A9E /* Main.storyboard */,
-				2C8835E41979CB5600FF1A9E /* Images.xcassets */,
-				2C8835DB1979CB5600FF1A9E /* Supporting Files */,
-				2C8836011979CBA700FF1A9E /* Cast My Videos-Bridging-Header.h */,
-				2C8836091979E23100FF1A9E /* ParseOperation.swift */,
-				2C88360B1979F93900FF1A9E /* DevicePopoverViewController.swift */,
-				2C88360D197A017400FF1A9E /* PlayingViewController.swift */,
-				2CE4AA88197D44F8002EE2B8 /* DataModel.xcdatamodeld */,
-				2C0A837019B5BA9500D09DAB /* Favorite.swift */,
-				2CE4AA96197D625F002EE2B8 /* Item.swift */,
-				2CE4AA90197D57C6002EE2B8 /* CoreDataManager.swift */,
-				2CE4AA98197D6F67002EE2B8 /* ItemTableViewCell.swift */,
-				2C543460197D9A1F000971B5 /* SaveOperation.swift */,
-				2C543462197DDB17000971B5 /* SearchResultViewController.swift */,
-				2C543464197DE9FB000971B5 /* SearchItemTableViewCell.swift */,
-				2C115652197DFD05004A317B /* OperationManager.swift */,
-				2CD7F393198D378300346279 /* BaseOperation.swift */,
-				2C59406A19B6002C009D0DBA /* PlayerView.swift */,
+				2C9DF2111A687EE500BF3577 /* AppDelegate */,
+				2C9DF2121A687F1B00BF3577 /* DataModel */,
+				2C9DF20A1A687D3200BF3577 /* Devices */,
+				2C9DF20F1A687D8E00BF3577 /* Images */,
+				2C9DF20B1A687D4B00BF3577 /* Models */,
+				2C9DF20D1A687D6800BF3577 /* Operations */,
+				2C9DF23B1A687FB100BF3577 /* Resources */,
+				2C9DF2101A687DB200BF3577 /* Storyboard */,
+				2C9DF20C1A687D5A00BF3577 /* ViewControllers */,
+				2C9DF20E1A687D7F00BF3577 /* Views */,
 			);
 			path = "Cast My Videos";
-			sourceTree = "<group>";
-		};
-		2C8835DB1979CB5600FF1A9E /* Supporting Files */ = {
-			isa = PBXGroup;
-			children = (
-				2C8835DC1979CB5600FF1A9E /* Info.plist */,
-			);
-			name = "Supporting Files";
 			sourceTree = "<group>";
 		};
 		2C8835ED1979CB5600FF1A9E /* Cast My VideosTests */ = {
@@ -175,11 +168,111 @@
 		2C8835FC1979CB8600FF1A9E /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
-				2C90C7D419FA38E5009DCF25 /* GoogleCast.framework */,
+				2C8C1C681A55417F00134587 /* SystemConfiguration.framework */,
+				2C8C1C661A55412E00134587 /* GoogleCast.framework */,
 				2C8835FF1979CB9900FF1A9E /* CoreText.framework */,
 				2C8835FD1979CB9500FF1A9E /* MediaAccessibility.framework */,
 			);
 			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		2C9DF20A1A687D3200BF3577 /* Devices */ = {
+			isa = PBXGroup;
+			children = (
+				2C9DF21B1A687F7700BF3577 /* AirPlay.swift */,
+				2C9DF21C1A687F7700BF3577 /* ChromeCastDevice.swift */,
+				2C9DF21D1A687F7700BF3577 /* DefaultDevice.swift */,
+				2C9DF21E1A687F7700BF3577 /* Device.swift */,
+				2C9DF21F1A687F7700BF3577 /* DeviceManager.swift */,
+			);
+			path = Devices;
+			sourceTree = "<group>";
+		};
+		2C9DF20B1A687D4B00BF3577 /* Models */ = {
+			isa = PBXGroup;
+			children = (
+				2C9DF2291A687F9A00BF3577 /* CastController.swift */,
+				2C9DF22A1A687F9A00BF3577 /* CoreDataManager.swift */,
+				2C9DF22B1A687F9A00BF3577 /* Favorite.swift */,
+				2C9DF22C1A687F9A00BF3577 /* Item.swift */,
+			);
+			path = Models;
+			sourceTree = "<group>";
+		};
+		2C9DF20C1A687D5A00BF3577 /* ViewControllers */ = {
+			isa = PBXGroup;
+			children = (
+				2C9DF2421A687FF400BF3577 /* DevicePopoverViewController.swift */,
+				2C9DF2431A687FF400BF3577 /* PlayingViewController.swift */,
+				2C9DF2441A687FF400BF3577 /* SearchResultViewController.swift */,
+				2C9DF2451A687FF400BF3577 /* ViewController.swift */,
+			);
+			path = ViewControllers;
+			sourceTree = "<group>";
+		};
+		2C9DF20D1A687D6800BF3577 /* Operations */ = {
+			isa = PBXGroup;
+			children = (
+				2C9DF2311A687FAA00BF3577 /* BaseOperation.swift */,
+				2C9DF2321A687FAA00BF3577 /* NetworkOperation.swift */,
+				2C9DF2331A687FAA00BF3577 /* OperationManager.swift */,
+				2C9DF2341A687FAA00BF3577 /* ParseOperation.swift */,
+				2C9DF2351A687FAA00BF3577 /* SaveOperation.swift */,
+			);
+			path = Operations;
+			sourceTree = "<group>";
+		};
+		2C9DF20E1A687D7F00BF3577 /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				2C9DF24A1A68800400BF3577 /* ItemTableViewCell.swift */,
+				2C9DF24B1A68800400BF3577 /* PlayerView.swift */,
+				2C9DF24C1A68800400BF3577 /* SearchItemTableViewCell.swift */,
+			);
+			path = Views;
+			sourceTree = "<group>";
+		};
+		2C9DF20F1A687D8E00BF3577 /* Images */ = {
+			isa = PBXGroup;
+			children = (
+				2C9DF2251A687F8600BF3577 /* film.png */,
+				2C9DF2261A687F8600BF3577 /* Images.xcassets */,
+			);
+			path = Images;
+			sourceTree = "<group>";
+		};
+		2C9DF2101A687DB200BF3577 /* Storyboard */ = {
+			isa = PBXGroup;
+			children = (
+				2C9DF23F1A687FDF00BF3577 /* Main.storyboard */,
+			);
+			name = Storyboard;
+			path = Storyboards;
+			sourceTree = "<group>";
+		};
+		2C9DF2111A687EE500BF3577 /* AppDelegate */ = {
+			isa = PBXGroup;
+			children = (
+				2C9DF2131A687F4D00BF3577 /* AppDelegate.swift */,
+			);
+			path = AppDelegate;
+			sourceTree = "<group>";
+		};
+		2C9DF2121A687F1B00BF3577 /* DataModel */ = {
+			isa = PBXGroup;
+			children = (
+				2C9DF2181A687F6800BF3577 /* DataModel.xcdatamodeld */,
+			);
+			path = DataModel;
+			sourceTree = "<group>";
+		};
+		2C9DF23B1A687FB100BF3577 /* Resources */ = {
+			isa = PBXGroup;
+			children = (
+				2C9DF23C1A687FCD00BF3577 /* Cast My Videos-Bridging-Header.h */,
+				2C9DF23D1A687FCD00BF3577 /* Info.plist */,
+			);
+			path = Resources;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -262,9 +355,10 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				2C8835E31979CB5600FF1A9E /* Main.storyboard in Resources */,
-				2C8835E51979CB5600FF1A9E /* Images.xcassets in Resources */,
-				2C0A837319B5C06D00D09DAB /* film.png in Resources */,
+				2C9DF2271A687F8600BF3577 /* film.png in Resources */,
+				2C9DF2281A687F8600BF3577 /* Images.xcassets in Resources */,
+				2C9DF23E1A687FCD00BF3577 /* Info.plist in Resources */,
+				2C9DF2411A687FDF00BF3577 /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -282,24 +376,29 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				2CE4AA97197D625F002EE2B8 /* Item.swift in Sources */,
-				2C88360C1979F93900FF1A9E /* DevicePopoverViewController.swift in Sources */,
-				2CE4AA8A197D44F8002EE2B8 /* DataModel.xcdatamodeld in Sources */,
-				2C8836081979CBFC00FF1A9E /* NetworkOperation.swift in Sources */,
-				2C8835E01979CB5600FF1A9E /* ViewController.swift in Sources */,
-				2C88360A1979E23100FF1A9E /* ParseOperation.swift in Sources */,
-				2C543465197DE9FB000971B5 /* SearchItemTableViewCell.swift in Sources */,
-				2C8835DE1979CB5600FF1A9E /* AppDelegate.swift in Sources */,
-				2C115653197DFD05004A317B /* OperationManager.swift in Sources */,
-				2C59406B19B6002C009D0DBA /* PlayerView.swift in Sources */,
-				2C8836061979CBDE00FF1A9E /* CastController.swift in Sources */,
-				2CD7F394198D378300346279 /* BaseOperation.swift in Sources */,
-				2CE4AA91197D57C6002EE2B8 /* CoreDataManager.swift in Sources */,
-				2CE4AA99197D6F67002EE2B8 /* ItemTableViewCell.swift in Sources */,
-				2C0A837119B5BA9500D09DAB /* Favorite.swift in Sources */,
-				2C543461197D9A1F000971B5 /* SaveOperation.swift in Sources */,
-				2C543463197DDB17000971B5 /* SearchResultViewController.swift in Sources */,
-				2C88360E197A017400FF1A9E /* PlayingViewController.swift in Sources */,
+				2C9DF2241A687F7700BF3577 /* DeviceManager.swift in Sources */,
+				2C9DF2141A687F4D00BF3577 /* AppDelegate.swift in Sources */,
+				2C9DF2221A687F7700BF3577 /* DefaultDevice.swift in Sources */,
+				2C9DF24E1A68800400BF3577 /* PlayerView.swift in Sources */,
+				2C9DF21A1A687F6800BF3577 /* DataModel.xcdatamodeld in Sources */,
+				2C9DF2231A687F7700BF3577 /* Device.swift in Sources */,
+				2C9DF2381A687FAA00BF3577 /* OperationManager.swift in Sources */,
+				2C9DF22F1A687F9A00BF3577 /* Favorite.swift in Sources */,
+				2C9DF2371A687FAA00BF3577 /* NetworkOperation.swift in Sources */,
+				2C9DF2361A687FAA00BF3577 /* BaseOperation.swift in Sources */,
+				2C9DF2301A687F9A00BF3577 /* Item.swift in Sources */,
+				2C9DF2491A687FF400BF3577 /* ViewController.swift in Sources */,
+				2C9DF2211A687F7700BF3577 /* ChromeCastDevice.swift in Sources */,
+				2C9DF2461A687FF400BF3577 /* DevicePopoverViewController.swift in Sources */,
+				2C9DF22E1A687F9A00BF3577 /* CoreDataManager.swift in Sources */,
+				2C9DF2391A687FAA00BF3577 /* ParseOperation.swift in Sources */,
+				2C9DF22D1A687F9A00BF3577 /* CastController.swift in Sources */,
+				2C9DF2471A687FF400BF3577 /* PlayingViewController.swift in Sources */,
+				2C9DF24F1A68800400BF3577 /* SearchItemTableViewCell.swift in Sources */,
+				2C9DF23A1A687FAA00BF3577 /* SaveOperation.swift in Sources */,
+				2C9DF2481A687FF400BF3577 /* SearchResultViewController.swift in Sources */,
+				2C9DF24D1A68800400BF3577 /* ItemTableViewCell.swift in Sources */,
+				2C9DF2201A687F7700BF3577 /* AirPlay.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -322,10 +421,10 @@
 /* End PBXTargetDependency section */
 
 /* Begin PBXVariantGroup section */
-		2C8835E11979CB5600FF1A9E /* Main.storyboard */ = {
+		2C9DF23F1A687FDF00BF3577 /* Main.storyboard */ = {
 			isa = PBXVariantGroup;
 			children = (
-				2C8835E21979CB5600FF1A9E /* Base */,
+				2C9DF2401A687FDF00BF3577 /* Base */,
 			);
 			name = Main.storyboard;
 			sourceTree = "<group>";
@@ -420,14 +519,13 @@
 				CLANG_ENABLE_MODULES = YES;
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
-					"/Users/Sandeep/Downloads/GoogleCastFramework-2.3.0-Release",
 					"$(PROJECT_DIR)",
 				);
-				INFOPLIST_FILE = "Cast My Videos/Info.plist";
+				INFOPLIST_FILE = "Cast My Videos/Resources/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				OTHER_LDFLAGS = "-ObjC";
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				SWIFT_OBJC_BRIDGING_HEADER = "Cast My Videos/Cast My Videos-Bridging-Header.h";
+				SWIFT_OBJC_BRIDGING_HEADER = "Cast My Videos/Resources/Cast My Videos-Bridging-Header.h";
 				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 			};
 			name = Debug;
@@ -440,14 +538,13 @@
 				CLANG_ENABLE_MODULES = YES;
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
-					"/Users/Sandeep/Downloads/GoogleCastFramework-2.3.0-Release",
 					"$(PROJECT_DIR)",
 				);
-				INFOPLIST_FILE = "Cast My Videos/Info.plist";
+				INFOPLIST_FILE = "Cast My Videos/Resources/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				OTHER_LDFLAGS = "-ObjC";
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				SWIFT_OBJC_BRIDGING_HEADER = "Cast My Videos/Cast My Videos-Bridging-Header.h";
+				SWIFT_OBJC_BRIDGING_HEADER = "Cast My Videos/Resources/Cast My Videos-Bridging-Header.h";
 			};
 			name = Release;
 		};
@@ -518,12 +615,12 @@
 /* End XCConfigurationList section */
 
 /* Begin XCVersionGroup section */
-		2CE4AA88197D44F8002EE2B8 /* DataModel.xcdatamodeld */ = {
+		2C9DF2181A687F6800BF3577 /* DataModel.xcdatamodeld */ = {
 			isa = XCVersionGroup;
 			children = (
-				2CE4AA89197D44F8002EE2B8 /* DataModel.xcdatamodel */,
+				2C9DF2191A687F6800BF3577 /* DataModel.xcdatamodel */,
 			);
-			currentVersion = 2CE4AA89197D44F8002EE2B8 /* DataModel.xcdatamodel */;
+			currentVersion = 2C9DF2191A687F6800BF3577 /* DataModel.xcdatamodel */;
 			path = DataModel.xcdatamodeld;
 			sourceTree = "<group>";
 			versionGroupType = wrapper.xcdatamodel;

@@ -9,8 +9,7 @@
 import Foundation
 import CoreData
 
-class Favorite: NSManagedObject {
-
+class Favorite: NSManagedObject
+{
     @NSManaged var items: NSSet
-
 }

@@ -8,49 +8,42 @@
 
 import UIKit
 
-class SearchItemTableViewCell: ItemTableViewCell {
+class SearchItemTableViewCell: ItemTableViewCell
+{
 
-  override func layoutSubviews(){
+  override func layoutSubviews()
+  {
     super.layoutSubviews()
     nameLabel!.preferredMaxLayoutWidth = bounds.size.width - 30
     super.layoutSubviews()
   }
   
-  override func setItem(item: Item){
+  override func setItem(item: Item)
+  {
     
     if let name = item.title {
-      
-      if name.lengthOfBytesUsingEncoding(NSASCIIStringEncoding) > 30{
+      if name.lengthOfBytesUsingEncoding(NSASCIIStringEncoding) > 30 {
         let upperLimit = advance(item.url!.startIndex, 30)
         nameLabel!.text = "\(name.substringToIndex(upperLimit))..."
-      }else{
+      } else {
         nameLabel!.text = name
       }
-      
-      
-    }else{
-      
-      
-      if item.url!.lengthOfBytesUsingEncoding(NSASCIIStringEncoding) > 30{
+    } else {
+      if item.url!.lengthOfBytesUsingEncoding(NSASCIIStringEncoding) > 30 {
         let upperLimit = advance(item.url!.startIndex, 30)
         nameLabel!.text = "\(item.url!.substringToIndex(upperLimit))..."
-        
-      }else{
+      } else {
         nameLabel!.text = item.url!
       }
     }
     
-    if let duration = item.duration{
-      
+    if let duration = item.duration {
       durationLabel!.text = duration
-      
     }
     
-    if let year = item.year{
+    if let year = item.year {
       yearLabel!.text = year
     }
     
   }
-
-
 }

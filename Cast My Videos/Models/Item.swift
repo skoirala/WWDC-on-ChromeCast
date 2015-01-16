@@ -11,8 +11,8 @@ import CoreData
 
 
 
-class Item: NSManagedObject {
-
+class Item: NSManagedObject
+{
     @NSManaged var url: String?
     @NSManaged var title: String?
     @NSManaged var duration: String?
@@ -20,6 +20,4 @@ class Item: NSManagedObject {
     @NSManaged var year: String?
     @NSManaged var favorite: Favorite?
     @NSManaged var userDefined: ObjCBool
-  
-  
 }
