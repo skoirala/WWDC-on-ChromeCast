@@ -12,9 +12,9 @@ import UIKit
 class OperationManager: NSObject
 {
 
-    let ParseOperationObservingContext = UnsafeMutablePointer<Int>(bitPattern: 1)
+    let ParseOperationObservingContext = UnsafeMutablePointer<Void>(bitPattern: 1)
 
-    let SaveOperationObservingContext = UnsafeMutablePointer<Int>(bitPattern: 2)
+    let SaveOperationObservingContext = UnsafeMutablePointer<Void>(bitPattern: 2)
 
     lazy var operationQueue: NSOperationQueue =
     {
@@ -25,8 +25,8 @@ class OperationManager: NSObject
         return operationQueue
     }()
 
-    func createOperationReturningFirstAndLastOperation(
-        #url: String!,
+    func createOperationReturningFirstAndLastOperation(url 
+        url: String!,
         forYear year: String!
         ) -> (firstOperation:NSOperation!, lastOperation: NSOperation!)
     {
@@ -92,17 +92,17 @@ class OperationManager: NSObject
     }
 
     override func observeValueForKeyPath(
-        keyPath: String,
-        ofObject object: AnyObject,
-        change: [NSObject : AnyObject],
+        keyPath: String?,
+        ofObject object: AnyObject?,
+        change: [String : AnyObject]?,
         context: UnsafeMutablePointer<Void>
         )
     {
         if keyPath == "fractionCompleted" {
             if context == ParseOperationObservingContext {
-                println("Completed \(change[NSKeyValueChangeNewKey])) % parsing")
+                print("Completed \(change![NSKeyValueChangeNewKey])) % parsing")
             }else if context == SaveOperationObservingContext {
-                println("Completed \(change) % saving")
+                print("Completed \(change) % saving")
             }
             
         } else {

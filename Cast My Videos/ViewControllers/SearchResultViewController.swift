@@ -33,7 +33,10 @@ class SearchResultViewController: UITableViewController, NSFetchedResultsControl
     let fetchedResultsController = NSFetchedResultsController(fetchRequest: fetchRequest, managedObjectContext: CoreDataManager.manager().managedObjectContext, sectionNameKeyPath: nil, cacheName: nil)
     
     fetchedResultsController.delegate = self
-    fetchedResultsController.performFetch(nil)
+    do {
+      try fetchedResultsController.performFetch()
+    } catch _ {
+    }
       return fetchedResultsController
   }()
 
@@ -46,7 +49,10 @@ class SearchResultViewController: UITableViewController, NSFetchedResultsControl
         
       }
       fetchedResultsController!.fetchRequest.predicate = predicate
-      fetchedResultsController?.performFetch(nil)
+      do {
+        try fetchedResultsController?.performFetch()
+      } catch _ {
+      }
       tableView.reloadData()
     }
   }
@@ -78,8 +84,8 @@ class SearchResultViewController: UITableViewController, NSFetchedResultsControl
     let cell = tableView.dequeueReusableCellWithIdentifier(
         CellIdentifier,
         forIndexPath: indexPath
-        ) as ItemTableViewCell
-    let item = fetchedResultsController!.fetchedObjects![indexPath.row] as Item
+        ) as! ItemTableViewCell
+    let item = fetchedResultsController!.fetchedObjects![indexPath.row] as! Item
     cell.setItem(item)
     return cell
     
@@ -92,7 +98,7 @@ class SearchResultViewController: UITableViewController, NSFetchedResultsControl
   {
     delegate?.searchResultViewController(
         self,
-        didSelectItem: fetchedResultsController?.fetchedObjects![indexPath.row] as Item
+        didSelectItem: fetchedResultsController?.fetchedObjects![indexPath.row] as! Item
     )
   }
   

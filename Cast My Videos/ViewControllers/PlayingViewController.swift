@@ -245,7 +245,7 @@ class PlayingViewController: UIViewController, PlayerViewDelegate, UIPopoverPres
             let currentTime = timeFromDuration(self.currentTime)
 
 
-            self.timerLabel!.text = NSString(format: "%@ / %@", currentTime, totalTime)
+            self.timerLabel!.text = NSString(format: "%@ / %@", currentTime, totalTime) as String
         }
 
     }
@@ -283,7 +283,10 @@ class PlayingViewController: UIViewController, PlayerViewDelegate, UIPopoverPres
         self.updateTimerLabel()
         let totalTime = self.timeFromDuration(self.duration!)
         self.item!.duration = totalTime as String
-        CoreDataManager.manager().managedObjectContext.save(nil)
+        do {
+            try CoreDataManager.manager().managedObjectContext.save()
+        } catch _ {
+        }
     }
 
     func playerViewTimeObserverForPlayer(playerView: PlayerView!) -> TimeObserver

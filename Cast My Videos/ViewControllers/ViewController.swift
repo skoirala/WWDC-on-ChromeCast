@@ -126,7 +126,7 @@ class ViewController: UITableViewController, UIPopoverPresentationControllerDele
 
     func prepareSearchController()
     {
-        let searchResultController = storyboard!.instantiateViewControllerWithIdentifier("SearchResultViewController") as SearchResultViewController
+        let searchResultController = storyboard!.instantiateViewControllerWithIdentifier("SearchResultViewController") as! SearchResultViewController
         searchResultController.delegate = self
         searchController = UISearchController(searchResultsController: searchResultController)
         searchController!.searchResultsUpdater = self
@@ -144,39 +144,41 @@ class ViewController: UITableViewController, UIPopoverPresentationControllerDele
         let alertController = UIAlertController(title: "Provide the url to cast", message: nil, preferredStyle: .Alert)
 
         alertController.addTextFieldWithConfigurationHandler(
-            { (textField: UITextField!) in
+            { (textField: UITextField) in
                 textField.placeholder = "http://developer.apple.com/202_hd_whats_new_in_cocoa_touch"
             }
         )
 
         alertController.addAction(UIAlertAction(title: "Ok", style: .Default, handler:
-            { (alertAction: UIAlertAction!) in
+            { (alertAction: UIAlertAction) in
 
 
                 let theTextField =  alertController.textFields![0]  as UITextField
 
                 let string = theTextField.text
 
-                if !string.isEmpty{
+                if !string!.isEmpty{
 
-                    let count = Item.countForEntityNamed("Item", withPredicate: NSPredicate(format: "url = %@", string), inManagedObjectContext: CoreDataManager.manager().managedObjectContext)
+                    let count = Item.countForEntityNamed("Item", withPredicate: NSPredicate(format: "url = %@", string!), inManagedObjectContext: CoreDataManager.manager().managedObjectContext)
                     var item: Item
 
                     if(count > 0){
 
-                        item = Item.findFirstEntityNamed("Item", withPredicate: NSPredicate(format: "url = %@", string), inManagedObjectContext: CoreDataManager.manager().managedObjectContext) as Item
+                        item = Item.findFirstEntityNamed("Item", withPredicate: NSPredicate(format: "url = %@", string!), inManagedObjectContext: CoreDataManager.manager().managedObjectContext) as! Item
 
                     }else{
 
-                        item = Item.insertNewForEntityNamed("Item", inManagedObjectContext: CoreDataManager.manager().managedObjectContext) as Item
+                        item = Item.insertNewForEntityNamed("Item", inManagedObjectContext: CoreDataManager.manager().managedObjectContext) as! Item
 
 
                         item.url = string
                         item.userDefined = ObjCBool(true)
                     }
-
-                    var error : NSError?
-                    CoreDataManager.manager().managedObjectContext.save(&error)
+                    do {
+                        try CoreDataManager.manager().managedObjectContext.save()
+                    } catch {
+                        print("Could not save")
+                    }
                 }
             }
             )
@@ -219,7 +221,7 @@ class ViewController: UITableViewController, UIPopoverPresentationControllerDele
     override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject!)
     {
         if segue.identifier == "PlayingViewController" {
-            let playingViewController = segue.destinationViewController as PlayingViewController
+            let playingViewController = segue.destinationViewController as! PlayingViewController
             playingViewController.item = sender as? Item
         }
     }
@@ -246,8 +248,8 @@ class ViewController: UITableViewController, UIPopoverPresentationControllerDele
     {
         let cell = tableView.dequeueReusableCellWithIdentifier(
             CellIdentifier, forIndexPath: indexPath
-            ) as ItemTableViewCell
-        let item = fetchedResultsController?.fetchedObjects![indexPath.row] as Item
+            ) as! ItemTableViewCell
+        let item = fetchedResultsController?.fetchedObjects![indexPath.row] as! Item
 
         cell.setItem(item)
         return cell
@@ -258,7 +260,7 @@ class ViewController: UITableViewController, UIPopoverPresentationControllerDele
         accessoryButtonTappedForRowWithIndexPath indexPath: NSIndexPath
         )
     {
-        let item = self.fetchedResultsController?.fetchedObjects![indexPath.row] as Item
+        let item = self.fetchedResultsController?.fetchedObjects![indexPath.row] as! Item
 
         let alertController = UIAlertController(
             title: "Name the video",
@@ -275,14 +277,18 @@ class ViewController: UITableViewController, UIPopoverPresentationControllerDele
         }
 
         alertController.addAction(UIAlertAction(title: "Ok", style: .Default, handler: {
-            (alertAction: UIAlertAction!) in
+            (alertAction: UIAlertAction) in
             let theTextField =  alertController.textFields![0]  as UITextField
 
             let string = theTextField.text
 
-            if !string.isEmpty {
+            if let empty = string?.isEmpty where empty == false {
                 item.title = string
-                CoreDataManager.manager().managedObjectContext.save(nil)
+                do  {
+                    try CoreDataManager.manager().managedObjectContext.save()
+                } catch {
+                    
+                }
             }
         }))
 
@@ -307,7 +313,7 @@ class ViewController: UITableViewController, UIPopoverPresentationControllerDele
     
     func updateSearchResultsForSearchController(searchController: UISearchController)
     {
-        let searchResultController = searchController.searchResultsController as SearchResultViewController
+        let searchResultController = searchController.searchResultsController as! SearchResultViewController
         
         searchResultController.searchString = searchController.searchBar.text
     }

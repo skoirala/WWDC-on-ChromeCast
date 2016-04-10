@@ -22,10 +22,9 @@ class NetworkOperation:NSOperation
     override func main()
     {
         if let url = NSURL(string: urlString) {
-            let urlRequest = NSURLRequest(URL: url)
 
             if let data = NSData(contentsOfURL: url) {
-                responseString = NSString(
+                responseString = String(
                     data: data,
                     encoding: NSUTF8StringEncoding
                 )

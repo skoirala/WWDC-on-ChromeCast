@@ -56,6 +56,7 @@
                   continueAfterRunningActions = "No"
                   symbolName = "Cast_My_Videos.ParseOperation.start (Cast_My_Videos.ParseOperation)() -&gt; ()"
                   moduleName = "Cast My Videos"
+                  usesParentBreakpointCondition = "Yes"
                   urlString = "file:///Users/Sandeep/Desktop/Cast%20My%20Videos/Cast%20My%20Videos/ParseOperation.swift"
                   timestampString = "431337378.908313"
                   startingColumnNumber = "9223372036854775807"
@@ -70,6 +71,7 @@
                   continueAfterRunningActions = "No"
                   symbolName = "Cast_My_Videos.ParseOperation.start (Cast_My_Videos.ParseOperation)() -&gt; ()"
                   moduleName = "Cast My Videos"
+                  usesParentBreakpointCondition = "Yes"
                   urlString = "file:///Users/Sandeep/Desktop/Cast%20My%20Videos/Cast%20My%20Videos/ParseOperation.swift"
                   timestampString = "431337378.908511"
                   startingColumnNumber = "9223372036854775807"
@@ -84,6 +86,7 @@
                   continueAfterRunningActions = "No"
                   symbolName = "Cast_My_Videos.ParseOperation.start (Cast_My_Videos.ParseOperation)() -&gt; ()"
                   moduleName = "Cast My Videos"
+                  usesParentBreakpointCondition = "Yes"
                   urlString = "file:///Users/Sandeep/Desktop/Cast%20My%20Videos/Cast%20My%20Videos/ParseOperation.swift"
                   timestampString = "431337378.908667"
                   startingColumnNumber = "9223372036854775807"
@@ -158,6 +161,7 @@
                   continueAfterRunningActions = "No"
                   symbolName = "Cast_My_Videos.PlayingViewController.updateTimerLabel (Cast_My_Videos.PlayingViewController)() -&gt; ()"
                   moduleName = "Cast My Videos"
+                  usesParentBreakpointCondition = "Yes"
                   urlString = "file:///Users/Sandeep/Desktop/Cast%20My%20Videos/Cast%20My%20Videos/PlayingViewController.swift"
                   timestampString = "431425027.600806"
                   startingColumnNumber = "9223372036854775807"
@@ -172,6 +176,7 @@
                   continueAfterRunningActions = "No"
                   symbolName = "Cast_My_Videos.PlayingViewController.updateTimerLabel (Cast_My_Videos.PlayingViewController)() -&gt; ()"
                   moduleName = "Cast My Videos"
+                  usesParentBreakpointCondition = "Yes"
                   urlString = "file:///Users/Sandeep/Desktop/Cast%20My%20Videos/Cast%20My%20Videos/PlayingViewController.swift"
                   timestampString = "431425027.600993"
                   startingColumnNumber = "9223372036854775807"
@@ -204,6 +209,7 @@
                   continueAfterRunningActions = "No"
                   symbolName = "Cast_My_Videos.PlayingViewController.(playerViewTimeObserverForPlayer (Cast_My_Videos.PlayingViewController) -&gt; (Swift.ImplicitlyUnwrappedOptional&lt;Cast_My_Videos.PlayerView&gt;) -&gt; (C.CMTime) -&gt; ()).(closure #1)"
                   moduleName = "Cast My Videos"
+                  usesParentBreakpointCondition = "Yes"
                   urlString = "file:///Users/Sandeep/Desktop/Cast%20My%20Videos/Cast%20My%20Videos/PlayingViewController.swift"
                   timestampString = "431426705.587515"
                   startingColumnNumber = "9223372036854775807"
@@ -218,6 +224,7 @@
                   continueAfterRunningActions = "No"
                   symbolName = "Cast_My_Videos.PlayingViewController.(playerViewTimeObserverForPlayer (Cast_My_Videos.PlayingViewController) -&gt; (Swift.ImplicitlyUnwrappedOptional&lt;Cast_My_Videos.PlayerView&gt;) -&gt; (C.CMTime) -&gt; ()).(closure #1)"
                   moduleName = "Cast My Videos"
+                  usesParentBreakpointCondition = "Yes"
                   urlString = "file:///Users/Sandeep/Desktop/Cast%20My%20Videos/Cast%20My%20Videos/PlayingViewController.swift"
                   timestampString = "431426705.587666"
                   startingColumnNumber = "9223372036854775807"
@@ -266,6 +273,7 @@
                   continueAfterRunningActions = "No"
                   symbolName = "Cast_My_Videos.PlayerView.observeValueForKeyPath (Cast_My_Videos.PlayerView)(Swift.ImplicitlyUnwrappedOptional&lt;Swift.String&gt;, ofObject : Swift.ImplicitlyUnwrappedOptional&lt;Swift.AnyObject&gt;, change : Swift.ImplicitlyUnwrappedOptional&lt;Swift.Dictionary&lt;ObjectiveC.NSObject, Swift.AnyObject&gt;&gt;, context : Swift.UnsafeMutablePointer&lt;()&gt;) -&gt; ()"
                   moduleName = "Cast My Videos"
+                  usesParentBreakpointCondition = "Yes"
                   urlString = "file:///Users/Sandeep/Desktop/Cast%20My%20Videos/Cast%20My%20Videos/PlayerView.swift"
                   timestampString = "431429853.615823"
                   startingColumnNumber = "9223372036854775807"
@@ -280,6 +288,7 @@
                   continueAfterRunningActions = "No"
                   symbolName = "Cast_My_Videos.PlayerView.observeValueForKeyPath (Cast_My_Videos.PlayerView)(Swift.ImplicitlyUnwrappedOptional&lt;Swift.String&gt;, ofObject : Swift.ImplicitlyUnwrappedOptional&lt;Swift.AnyObject&gt;, change : Swift.ImplicitlyUnwrappedOptional&lt;Swift.Dictionary&lt;ObjectiveC.NSObject, Swift.AnyObject&gt;&gt;, context : Swift.UnsafeMutablePointer&lt;()&gt;) -&gt; ()"
                   moduleName = "Cast My Videos"
+                  usesParentBreakpointCondition = "Yes"
                   urlString = "file:///Users/Sandeep/Desktop/Cast%20My%20Videos/Cast%20My%20Videos/PlayerView.swift"
                   timestampString = "431429853.616014"
                   startingColumnNumber = "9223372036854775807"
@@ -312,6 +321,7 @@
                   continueAfterRunningActions = "No"
                   symbolName = "Cast_My_Videos.CastController.deviceDidComeOnline (Cast_My_Videos.CastController)(Swift.ImplicitlyUnwrappedOptional&lt;ObjectiveC.GCKDevice&gt;) -&gt; ()"
                   moduleName = "Cast My Videos"
+                  usesParentBreakpointCondition = "Yes"
                   urlString = "file:///Users/Sandeep/WWDC-on-ChromeCast/Cast%20My%20Videos/CastController.swift"
                   timestampString = "443051942.995379"
                   startingColumnNumber = "9223372036854775807"
@@ -326,6 +336,7 @@
                   continueAfterRunningActions = "No"
                   symbolName = "Cast_My_Videos.CastController.(deviceDidComeOnline (Cast_My_Videos.CastController) -&gt; (Swift.ImplicitlyUnwrappedOptional&lt;ObjectiveC.GCKDevice&gt;) -&gt; ()).(closure #1)"
                   moduleName = "Cast My Videos"
+                  usesParentBreakpointCondition = "Yes"
                   urlString = "file:///Users/Sandeep/WWDC-on-ChromeCast/Cast%20My%20Videos/CastController.swift"
                   timestampString = "443051942.995555"
                   startingColumnNumber = "9223372036854775807"
@@ -340,6 +351,7 @@
                   continueAfterRunningActions = "No"
                   symbolName = "reabstraction thunk helper from @callee_owned (@owned Cast_My_Videos.ChromeCastDevice) -&gt; (@unowned Swift.Bool) to @callee_owned (@in Cast_My_Videos.ChromeCastDevice) -&gt; (@unowned Swift.Bool)"
                   moduleName = "Cast My Videos"
+                  usesParentBreakpointCondition = "Yes"
                   urlString = "file:///Users/Sandeep/WWDC-on-ChromeCast/Cast%20My%20Videos/CastController.swift"
                   timestampString = "443051942.995653"
                   startingColumnNumber = "9223372036854775807"
@@ -349,6 +361,86 @@
                   offsetFromSymbolStart = "0">
                </Location>
             </Locations>
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "Cast My Videos/Operations/ParseOperation.swift"
+            timestampString = "482015500.827543"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "38"
+            endingLineNumber = "38"
+            landmarkName = "start()"
+            landmarkType = "5">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "Cast My Videos/Operations/ParseOperation.swift"
+            timestampString = "482015530.81826"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "95"
+            endingLineNumber = "95"
+            landmarkName = "start()"
+            landmarkType = "5">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "Cast My Videos/Operations/ParseOperation.swift"
+            timestampString = "482015542.007298"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "102"
+            endingLineNumber = "102"
+            landmarkName = "start()"
+            landmarkType = "5">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "Cast My Videos/Operations/ParseOperation.swift"
+            timestampString = "482015543.485944"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "103"
+            endingLineNumber = "103"
+            landmarkName = "start()"
+            landmarkType = "5">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "Cast My Videos/Operations/ParseOperation.swift"
+            timestampString = "482015554.609162"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "69"
+            endingLineNumber = "69"
+            landmarkName = "start()"
+            landmarkType = "5">
          </BreakpointContent>
       </BreakpointProxy>
    </Breakpoints>

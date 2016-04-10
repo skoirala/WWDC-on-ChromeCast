@@ -65,7 +65,7 @@
                     let item = Item.insertNewForEntityNamed(
                         "Item",
                         inManagedObjectContext: savingManagedObjectContext
-                        ) as Item
+                        ) as! Item
 
                     item.setValuesForKeysWithDictionary(dict)
                     item.year = year
@@ -74,7 +74,10 @@
                 progress.completedUnitCount += 1
 
             }
-            savingManagedObjectContext!.save(nil)
+            do {
+                try savingManagedObjectContext!.save()
+            } catch _ {
+            }
         }
     }
 

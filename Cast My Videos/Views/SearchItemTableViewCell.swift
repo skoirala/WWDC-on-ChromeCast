@@ -23,14 +23,14 @@ class SearchItemTableViewCell: ItemTableViewCell
     
     if let name = item.title {
       if name.lengthOfBytesUsingEncoding(NSASCIIStringEncoding) > 30 {
-        let upperLimit = advance(item.url!.startIndex, 30)
+        let upperLimit = item.url!.startIndex.advancedBy(30)
         nameLabel!.text = "\(name.substringToIndex(upperLimit))..."
       } else {
         nameLabel!.text = name
       }
     } else {
       if item.url!.lengthOfBytesUsingEncoding(NSASCIIStringEncoding) > 30 {
-        let upperLimit = advance(item.url!.startIndex, 30)
+        let upperLimit = item.url!.startIndex.advancedBy(30)
         nameLabel!.text = "\(item.url!.substringToIndex(upperLimit))..."
       } else {
         nameLabel!.text = item.url!

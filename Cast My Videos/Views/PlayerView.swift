@@ -27,7 +27,7 @@ class PlayerView: UIView
     }
 
     var observing = false
-    var timeObserver: TimeObserver!
+    var timeObserver: TimeObserver?
 
     var currentItem: AVPlayerItem?
     weak var delegate: PlayerViewDelegate?
@@ -41,7 +41,7 @@ class PlayerView: UIView
 
     private var player: AVPlayer! = AVPlayer()
 
-    private let AVPlayerItemObservingContext = UnsafeMutablePointer<Int>(bitPattern: 1)
+    private let AVPlayerItemObservingContext = UnsafeMutablePointer<Void>(bitPattern: 1)
 
     override class func layerClass() -> AnyClass
     {
@@ -54,13 +54,13 @@ class PlayerView: UIView
         setup()
     }
 
-    required init(coder aDecoder: NSCoder)
+    required init?(coder aDecoder: NSCoder)
     {
         super.init(coder: aDecoder)
         setup()
     }
 
-    func play(_ go: Bool = false)
+    func play(go: Bool = false)
     {
         if go {
             player.play()
@@ -75,9 +75,9 @@ class PlayerView: UIView
     }
 
     override func observeValueForKeyPath(
-        keyPath: String,
-        ofObject object: AnyObject,
-        change: [NSObject : AnyObject],
+        keyPath: String?,
+        ofObject object: AnyObject?,
+        change: [String : AnyObject]?,
         context: UnsafeMutablePointer<Void>
         )
     {
@@ -104,9 +104,9 @@ class PlayerView: UIView
 
     func preparePlayWithUrlString(url: String!){
 
-        let asset = AVURLAsset(URL: NSURL(string: url), options: nil)
+        let asset = AVURLAsset(URL: NSURL(string: url)!, options: nil)
 
-        observer = player.addPeriodicTimeObserverForInterval(CMTimeMake(2, 5), queue: dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0), usingBlock: delegate?.playerViewTimeObserverForPlayer(self))
+        observer = player.addPeriodicTimeObserverForInterval(CMTimeMake(2, 5), queue: dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0), usingBlock: (delegate?.playerViewTimeObserverForPlayer(self))!)
 
         asset.loadValuesAsynchronouslyForKeys(["tracks"], completionHandler: { [weak self]() -> Void in
             if let thePlayer = self{
@@ -132,9 +132,9 @@ class PlayerView: UIView
                     });
                     
                 case .Failed:
-                    println("Failed to load")
+                    print("Failed to load")
                 default:
-                    println("Default")
+                    print("Default")
                 }
             }
         })
@@ -146,7 +146,7 @@ class PlayerView: UIView
     
     func setup()
     {
-        let playerLayer = layer as AVPlayerLayer
+        let playerLayer = layer as! AVPlayerLayer
         playerLayer.player = player
         playerLayer.videoGravity = AVLayerVideoGravityResizeAspect
     }

@@ -49,13 +49,11 @@ class CoreDataManager
             NSInferMappingModelAutomaticallyOption: true
         ]
 
-        let documentDirectory = NSFileManager.defaultManager().URLForDirectory(
+        let documentDirectory = try? NSFileManager.defaultManager().URLForDirectory(
             .DocumentDirectory,
             inDomain: .UserDomainMask,
             appropriateForURL: nil,
-            create: false,
-            error: nil
-        )
+            create: false)
 
         let fileUrl = documentDirectory?.URLByAppendingPathComponent("Item.sqlite")
 
@@ -64,17 +62,21 @@ class CoreDataManager
         )
         var error: NSError?
 
-        let persistentStore: NSPersistentStore? = persistentStoreCoordinator.addPersistentStoreWithType(
-            NSSQLiteStoreType,
-            configuration: nil,
-            URL: fileUrl,
-            options: options,
-            error: &error
-        )
+        let persistentStore: NSPersistentStore?
+        do {
+            persistentStore = try persistentStoreCoordinator.addPersistentStoreWithType(
+                        NSSQLiteStoreType,
+                        configuration: nil,
+                        URL: fileUrl,
+                        options: options)
+        } catch let error1 as NSError {
+            error = error1
+            persistentStore = nil
+        }
 
         if persistentStore != nil {
             if let theError = error {
-                println("Could not create persistent store %d", theError.localizedDescription)
+                print("Could not create persistent store %d", theError.localizedDescription)
                 exit(0);
             }
         }
@@ -121,10 +123,14 @@ extension NSManagedObject
 
         var error: NSError?
 
-        fetchedResultsController.performFetch(&error)
+        do {
+            try fetchedResultsController.performFetch()
+        } catch let error1 as NSError {
+            error = error1
+        }
 
         if let theError = error {
-            println("Fetched results controller error \(error?.localizedDescription)")
+            print("Fetched results controller error \(error?.localizedDescription)")
             return nil
         }
         return fetchedResultsController
@@ -138,15 +144,16 @@ extension NSManagedObject
         let fetchRequest = NSFetchRequest(entityName: name)
         fetchRequest.predicate = predicate
 
-        var error: NSError?
-        let objects: [NSManagedObject] = context.executeFetchRequest(
-            fetchRequest,
-            error: &error
-            ) as [NSManagedObject]
-
-        if let theError = error {
-            println("Error Occurred \(theError.localizedDescription)" )
+        var objects: [NSManagedObject] = []
+        
+        do {
+            objects = try context.executeFetchRequest(fetchRequest) as! [NSManagedObject]
+            
+        } catch let error as NSError {
+            print("Error Occurred \(error.localizedDescription)" )
             return nil
+        } catch {
+            
         }
         return objects
     }

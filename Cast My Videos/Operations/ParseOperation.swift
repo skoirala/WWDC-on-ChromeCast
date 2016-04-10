@@ -46,14 +46,18 @@ class ParseOperation: BaseOperation
             regexString =  regexFor2013Onwards
         }
 
-        let regex = NSRegularExpression(
-            pattern: regexString,
-            options: .CaseInsensitive,
-            error: &errorPointer
-        )
+        let regex: NSRegularExpression?
+        do {
+            regex = try NSRegularExpression(
+                        pattern: regexString,
+                        options: .CaseInsensitive)
+        } catch var error as NSError {
+            errorPointer = error
+            regex = nil
+        }
 
         let matches = regex?.matchesInString(
-            response!,
+            response! as String,
             options:.ReportCompletion,
             range:NSMakeRange(0, response!.length)
         )

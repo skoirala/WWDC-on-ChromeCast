@@ -8,6 +8,14 @@
 
 import UIKit
 
+extension String.CharacterView: Equatable {
+    
+}
+
+public func ==(character1: String.CharacterView, character2: String.CharacterView) -> Bool {
+    return String(character1) == String(character2)
+}
+
 let ChromeCastDeviceDidBecomeOnlineNotification = "ChromeCastDeviceDidComeOnlineNotification"
 let ChromeCastDeviceDidBecomeOfflineNotification = "ChromeCastDeviceDidBecomeOfflineNotification"
 let receiverId = "5AEF9E81"
@@ -45,7 +53,7 @@ class CastController: NSObject, GCKDeviceScannerListener, GCKDeviceManagerDelega
     func selectDevice(device: GCKDevice!)
     {
         if let dict = NSBundle.mainBundle().infoDictionary as NSDictionary? {
-            deviceManager = GCKDeviceManager(device: device, clientPackageName: dict["CFBundleIdentifier"] as String)
+            deviceManager = GCKDeviceManager(device: device, clientPackageName: dict["CFBundleIdentifier"] as! String)
             selectedDevice = device
             deviceManager!.delegate = self
             deviceManager?.connect()
@@ -55,12 +63,8 @@ class CastController: NSObject, GCKDeviceScannerListener, GCKDeviceManagerDelega
     func playVideo(string: String!)
     {
         let metadata = GCKMediaMetadata()
-
-        let splittedString = split(string, {$0 == "_"}, maxSplit: Int.max, allowEmptySlices: false)
-
-        let joinedString = " ".join(splittedString)
-
-
+        let joinedString = string.characters.split(isSeparator: { $0 == "_"}).map(String.init).joinWithSeparator(" ")
+        
         metadata.setString(joinedString, forKey: kGCKMetadataKeyTitle)
 
 
@@ -95,13 +99,8 @@ class CastController: NSObject, GCKDeviceScannerListener, GCKDeviceManagerDelega
     func playVideo(string: String!, fromTime time: Double)
     {
         let metadata = GCKMediaMetadata()
-        let separatedString = split(
-            string, {$0 == "_"},
-            maxSplit: Int.max,
-            allowEmptySlices: false
-        )
-
-        let joinedString = " ".join(separatedString)
+        let joinedString = string.characters.split(isSeparator: { "_" == $0}).map(String.init).joinWithSeparator(" ")
+            
         metadata.setString(joinedString, forKey: kGCKMetadataKeyTitle)
 
         let mediaInformation  = GCKMediaInformation(
@@ -135,7 +134,7 @@ class CastController: NSObject, GCKDeviceScannerListener, GCKDeviceManagerDelega
         )
 
         if existing.count == 0 {
-            println("Device Found \(device.friendlyName)")
+            print("Device Found \(device.friendlyName)")
             let device = ChromeCastDevice(
                 device: device,
                 chromCastController: self
@@ -186,21 +185,21 @@ class CastController: NSObject, GCKDeviceScannerListener, GCKDeviceManagerDelega
         mediaControlChannel: GCKMediaControlChannel!
         )
     {
-        println("Updated metadata \(mediaControlChannel.approximateStreamPosition())")
+        print("Updated metadata \(mediaControlChannel.approximateStreamPosition())")
     }
     
     func mediaControlChannelDidUpdateStatus(
         mediaControlChannel: GCKMediaControlChannel!
         )
     {
-        println("Updated channel updated status \(mediaControlChannel.approximateStreamPosition())")
+        print("Updated channel updated status \(mediaControlChannel.approximateStreamPosition())")
     }
     
     func deviceManager(deviceManager: GCKDeviceManager!,
         didReceiveStatusForApplication applicationMetadata: GCKApplicationMetadata!
         )
     {
-        println("received status for application \(applicationMetadata)")
+        print("received status for application \(applicationMetadata)")
         
     }
 }

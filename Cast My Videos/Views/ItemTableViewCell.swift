@@ -33,13 +33,13 @@ class ItemTableViewCell: UITableViewCell
   {
     if let name = item.title {
       if name.lengthOfBytesUsingEncoding(NSUTF8StringEncoding) > 28{
-        nameLabel.text = "\(name.substringToIndex(advance(name.startIndex, 28)))"
+        nameLabel.text = "\(name.substringToIndex(name.startIndex.advancedBy(28)))"
       } else {
         nameLabel.text = name
       }
     } else {
-      if item.url!.utf16Count > 28 {
-        nameLabel.text = "\(item.url!.substringToIndex(advance(item.url!.startIndex, 28)))..."
+      if item.url!.characters.count > 28 {
+        nameLabel.text = "\(item.url!.substringToIndex(item.url!.startIndex.advancedBy(28)))..."
       } else {
         nameLabel.text = item.url!
       }

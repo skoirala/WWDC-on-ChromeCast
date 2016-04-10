@@ -94,33 +94,33 @@ class DeviceManager: NSObject
 
     func externalDeviceDidConnect(notification: NSNotification)
     {
-        println("External device connected")
+        print("External device connected")
     }
 
     func externalDeviceDidDisconnect(notification: NSNotification)
     {
-        println("External device disconnected")
+        print("External device disconnected")
     }
 
     func chromeCastDeviceDidConnect(notification: NSNotification)
     {
-        println("ChromeCast device connected")
+        print("ChromeCast device connected")
     }
 
     private func chromeCastDeviceDidDisconnect(notification: NSNotification)
     {
-        println("ChromeCast device disconnected")
+        print("ChromeCast device disconnected")
     }
 
     func deviceDidBecomeOnline(notification: NSNotification)
     {
-        println(self.castController.allFoundDevices)
+        print(self.castController.allFoundDevices)
     }
 
     func deviceDidBecomeOfflineNotification(
         notification: NSNotification
     )
     {
-        println(self.castController.allFoundDevices)
+        print(self.castController.allFoundDevices)
     }
 }
